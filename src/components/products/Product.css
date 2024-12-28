@@ -1,0 +1,30 @@
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
+  gap: 15px;
+}
+
+.cart-grid-children {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.cart-save-amount {
+  padding-top: 15px;
+}
+
+.product-cart-content {
+  padding: 15px;
+}
+
+.product-discount-area {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 0 15px 0 15px !important; /* Removed the extra 0 */
+}
