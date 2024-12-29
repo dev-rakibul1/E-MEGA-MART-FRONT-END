@@ -1,0 +1,120 @@
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+  gap: 15px;
+}
+
+.category-image-area {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.categories-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.categories-child:hover .category-image-area {
+  border: 1px solid #0077b5 !important;
+}
+
+/* -------------Offer style------------ */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(194px, 1fr));
+  gap: 15px;
+}
+
+.offer-image-area {
+  width: 100%;
+  height: 178px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-width: 100%;
+  transition: all 0.5s;
+}
+
+.offer-image-area img {
+  width: 100%;
+  height: 100%;
+}
+
+.offer-child {
+  cursor: pointer;
+}
+
+.offer-child:hover .offer-image-area {
+  border: 1px solid #0077b5 !important;
+}
+
+/* Slier style */
+.current-dots {
+  width: 40px !important;
+  height: 10px !important;
+  background: #fff;
+  border-radius: 10px !important;
+  border: none;
+}
+
+.default-dots {
+  height: 10px;
+  width: 10px;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.slider-article-wrap {
+  max-width: 100%;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.slider-parent:hover .prev-nav {
+  margin-left: 10px;
+  opacity: 1 !important;
+}
+.slider-parent:hover .next-nav {
+  margin-right: 10px;
+  opacity: 1 !important;
+}
+
+/* Slider two/home product slider style */
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  margin-top: 22px !important;
+  position: relative;
+}
+
+.swiper-pagination-bullet-custom {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #000;
+}
+
+.swiper-pagination-bullet-active {
+  width: 40px !important;
+  height: 7px !important;
+  background: #0077b5 !important;
+  border-radius: 7px !important;
+}
+
+.swiper {
+  padding: 100px 0;
+}

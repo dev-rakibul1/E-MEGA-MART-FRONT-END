@@ -5,6 +5,7 @@ import "./Product.css";
 
 import { IProduct } from "@/types/Common";
 import { Typography } from "antd";
+import Link from "next/link";
 const { Text, Paragraph } = Typography;
 
 const ProductCart = ({ product }: { product: IProduct }) => {
@@ -17,74 +18,81 @@ const ProductCart = ({ product }: { product: IProduct }) => {
   const finalSaveAmount: number = originalAmount - discountAmount;
 
   return (
-    <div
-      className="cart-grid-children"
-      style={{ border: `1px solid ${ThemeColors.colorBorder}` }}
-    >
-      {/* Image */}
+    <Link href={`/details/${product?._id}`}>
       <div
-        className="product-cart-image"
-        style={{ background: ThemeColors.colorPrimaryLight }}
+        className="cart-grid-children"
+        style={{ border: `1px solid ${ThemeColors.colorBorder}` }}
       >
-        <img src={product?.imageUrl} alt="product-image" />
-      </div>
+        {/* Image */}
+        <div
+          className="product-cart-image"
+          style={{ background: ThemeColors.colorPrimaryLight }}
+        >
+          <img src={product?.imageUrl} alt="product-image" />
+        </div>
 
-      {/* Content */}
-      <div className="product-cart-content">
-        <article>
-          <Paragraph style={{ fontWeight: "500", fontSize: "19px" }}>
-            {product?.name}
-          </Paragraph>
-          <Paragraph
-            style={{
-              fontWeight: "500",
-              fontSize: "19px",
-              marginTop: "-15px",
-            }}
-          >
-            ₹{finalSaveAmount.toFixed(2)}{" "}
-            <del style={{ fontWeight: "300" }}>₹{product?.price}</del>
-          </Paragraph>
-          <div
-            className="cart-save-amount"
-            style={{ borderTop: `1px solid ${ThemeColors.colorBorder}` }}
-          >
+        {/* Content */}
+        <div className="product-cart-content">
+          <article>
+            <Paragraph style={{ fontWeight: "500", fontSize: "19px" }}>
+              {product?.name}
+            </Paragraph>
             <Paragraph
               style={{
-                color: ThemeColors.colorSuccess,
-                fontSize: "19px",
                 fontWeight: "500",
-                margin: "0",
-                padding: "0",
+                fontSize: "19px",
+                marginTop: "-15px",
+                textDecoration: "none",
               }}
             >
-              Save - ₹{discountAmount.toFixed(2)}{" "}
+              ₹{finalSaveAmount.toFixed(2)}{" "}
+              <del style={{ fontWeight: "300" }}>₹{product?.price}</del>
             </Paragraph>
-          </div>
-        </article>
-      </div>
+            <div
+              className="cart-save-amount"
+              style={{
+                borderTop: `1px solid ${ThemeColors.colorBorder}`,
+                textDecoration: "none",
+              }}
+            >
+              <Paragraph
+                style={{
+                  color: ThemeColors.colorSuccess,
+                  fontSize: "19px",
+                  fontWeight: "500",
+                  margin: "0",
+                  padding: "0",
+                  textDecoration: "none",
+                }}
+              >
+                Save - ₹{discountAmount.toFixed(2)}{" "}
+              </Paragraph>
+            </div>
+          </article>
+        </div>
 
-      {/* Discount content */}
-      <div
-        className="product-discount-area"
-        style={{
-          background: ThemeColors.colorPrimary,
-          color: ThemeColors.bgWhite,
-        }}
-      >
-        <Text
+        {/* Discount content */}
+        <div
+          className="product-discount-area"
           style={{
+            background: ThemeColors.colorPrimary,
             color: ThemeColors.bgWhite,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
           }}
         >
-          {product?.discount}% <br /> OFF
-        </Text>
+          <Text
+            style={{
+              color: ThemeColors.bgWhite,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            {product?.discount}% <br /> OFF
+          </Text>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

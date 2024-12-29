@@ -6,7 +6,7 @@ export const apiBase = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:7000/api/v1/",
   }),
-  tagTypes: ["Product", "Category"],
+  tagTypes: ["Product", "Category", "Offer"],
   endpoints: (builder) => ({
     // get all product
     getAllProducts: builder.query({
@@ -16,7 +16,39 @@ export const apiBase = createApi({
       }),
       providesTags: ["Product"],
     }),
+
+    // get single product
+    GetSingleProducts: builder.query({
+      query: (id: string) => ({
+        url: `/product/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["Product"],
+    }),
+
+    // get categories
+    GetAllCategories: builder.query({
+      query: () => ({
+        url: `/categories/`,
+        method: "GET",
+      }),
+      providesTags: ["Category"],
+    }),
+
+    // get offers
+    GetAllDailyOffer: builder.query({
+      query: () => ({
+        url: `/daily-offer/`,
+        method: "GET",
+      }),
+      providesTags: ["Offer"],
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery } = apiBase;
+export const {
+  useGetAllProductsQuery,
+  useGetSingleProductsQuery,
+  useGetAllCategoriesQuery,
+  useGetAllDailyOfferQuery,
+} = apiBase;

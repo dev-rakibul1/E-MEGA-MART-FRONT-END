@@ -17,6 +17,15 @@
   padding: 15px;
 }
 
+.cart-grid-children {
+  transition: border 0.3s ease;
+}
+
+.cart-grid-children:hover {
+  border: 1px solid #0077b5 !important;
+  cursor: pointer;
+}
+
 .product-discount-area {
   position: absolute;
   top: 0;
