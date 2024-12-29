@@ -26,7 +26,7 @@ const MainMenu = () => {
 
   return (
     <div
-      className={`${isMobile ? "hidden" : "app-menu-trigger"}`}
+      className={`main-menu-sticky ${isMobile ? "hidden" : "app-menu-trigger"}`}
       style={{
         background: ThemeColors.bgWhite,
         borderBottom: `1px solid ${ThemeColors?.colorBorder}`,

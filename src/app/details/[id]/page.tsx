@@ -4,19 +4,15 @@ import HomeProductDetailsPage from "@/components/home/HomeProductDetails";
 import { useGetSingleProductsQuery } from "@/redux/BaseQuery";
 import { IProduct } from "@/types/Common";
 import { Spin } from "antd";
-
-interface Params {
-  id: string;
-}
+import React from "react";
 
 interface Props {
-  params: Params;
+  params: Promise<{ id: string }>;
 }
 
 const HomeProductDetails = ({ params }: Props) => {
-  console.log(params);
+  const { id } = React.use(params); // Unwrap `params` using React.use()
 
-  const id = params?.id;
   const { data, isLoading } = useGetSingleProductsQuery(id);
 
   const product: IProduct = data?.data;

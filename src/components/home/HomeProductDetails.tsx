@@ -1,5 +1,7 @@
 "use client";
 
+import { addToCart } from "@/redux/features/cart";
+import { useAppDispatch } from "@/redux/hooks";
 import { ThemeColors } from "@/theme/color";
 import { IProduct } from "@/types/Common";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
@@ -24,6 +26,7 @@ type Props = {
 
 const HomeProductDetailsPage = ({ product }: Props) => {
   const [quantity, setQuantity] = useState<number>(1);
+  const dispatch = useAppDispatch();
 
   const handleIncrement = () => {
     if (quantity < (product?.stock || 0)) {
@@ -43,6 +46,7 @@ const HomeProductDetailsPage = ({ product }: Props) => {
 
   // handleProductToCart
   const handleProductToCart = (product: IProduct) => {
+    dispatch(addToCart(product));
     console.log(product);
   };
 

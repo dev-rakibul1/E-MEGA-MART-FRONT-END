@@ -1,7 +1,9 @@
 "use client";
 
+import AddToProductCart from "@/components/addCart/AddCart";
 import TriggerMenuSearch from "@/components/navbar/triggerMenu/TriggerMenuSearch";
 import TriggerMenuSignArea from "@/components/navbar/triggerMenu/TriggerMenuSignArea";
+import { useAppSelector } from "@/redux/hooks";
 import {
   TriggerMenuIconParent,
   TriggerMenuParent,
@@ -9,7 +11,7 @@ import {
 } from "@/styles/GStyles";
 import { ThemeColors } from "@/theme/color";
 import { AlignRightOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { Typography } from "antd";
+import { Badge, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 import TriggerMenuItems from "./TriggerMenuItems";
 
@@ -17,6 +19,9 @@ const { Paragraph } = Typography;
 
 const TriggerMenu = () => {
   const [collapsed, setCollapsed] = useState<boolean>(true); // Default hidden
+  const [open, setOpen] = useState(false);
+
+  const { products } = useAppSelector((state) => state.cart);
 
   // Toggle the sidebar's collapsed state
   const handleToggle = () => {
@@ -38,8 +43,17 @@ const TriggerMenu = () => {
     };
   }, []);
 
+  // drawer click
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
   return (
     <>
+      {/* Cart drawer */}
+      <AddToProductCart open={open} setOpen={setOpen} />
+
+      {/* menu items */}
       <TriggerMenuItems collapsed={collapsed} onToggle={handleToggle} />
 
       <div className={`${window.innerWidth < 992 ? "trigger-menu" : ""}`}>
@@ -47,7 +61,6 @@ const TriggerMenu = () => {
           {/* Parent */}
           <div style={TriggerMenuParent}>
             {/* icon and trigger menu */}
-
             <div style={TriggerMenuIconParent}>
               <h1 style={{ fontSize: "22px", color: ThemeColors.colorPrimary }}>
                 <AlignRightOutlined
@@ -97,24 +110,30 @@ const TriggerMenu = () => {
                 </div>
 
                 {/* Cart */}
-                <Paragraph
-                  style={{
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "start",
-                  }}
-                >
-                  {" "}
-                  <ShoppingCartOutlined
-                    style={{
-                      marginRight: "8px",
-                      color: ThemeColors.colorPrimary,
-                      fontSize: "22px",
-                    }}
-                  />
-                  Cart
-                </Paragraph>
+                <>
+                  <Space onClick={showDrawer}>
+                    <Badge count={products?.length ? products?.length : 0}>
+                      <Paragraph
+                        style={{
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "start",
+                        }}
+                      >
+                        {" "}
+                        <ShoppingCartOutlined
+                          style={{
+                            marginRight: "8px",
+                            color: ThemeColors.colorPrimary,
+                            fontSize: "22px",
+                          }}
+                        />
+                        Cart
+                      </Paragraph>
+                    </Badge>
+                  </Space>
+                </>
               </div>
             </div>
           </div>

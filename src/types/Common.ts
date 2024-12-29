@@ -42,6 +42,7 @@ export type IProduct = {
   isFeatured?: boolean;
   weight?: number;
   isAvailable: boolean;
+  quantity?: number;
 };
 
 type Variant = {
