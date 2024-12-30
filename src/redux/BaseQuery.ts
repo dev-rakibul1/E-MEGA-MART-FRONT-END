@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiBase = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:7000/api/v1/",
+    baseUrl: "https://mega-mart-backend-one.vercel.app/api/v1/",
   }),
   tagTypes: ["Product", "Category", "Offer"],
   endpoints: (builder) => ({
