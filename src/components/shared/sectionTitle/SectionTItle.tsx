@@ -20,13 +20,14 @@ const SectionTItle = ({ title, btn, titleColor }: Props) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          marginBottom: "30px",
+          borderBottom: `1px solid ${ThemeColors.colorBorder}`,
         }}
       >
         <div
           style={{
             borderBottom: `2px solid ${ThemeColors.colorPrimary}`,
-            paddingBottom: "3px",
-            marginBottom: "30px",
+            paddingBottom: "5px",
           }}
         >
           <Text style={{ fontSize: "18px", fontWeight: "500" }}>

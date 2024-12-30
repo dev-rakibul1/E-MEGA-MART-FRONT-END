@@ -6,6 +6,7 @@ import { useGetAllDailyOfferQuery } from "@/redux/BaseQuery";
 import { ThemeColors } from "@/theme/color";
 import { IDailyOffer } from "@/types/Common";
 import { Spin, Typography } from "antd";
+import Image from "next/image";
 import "../Home.css";
 
 const { Text } = Typography;
@@ -39,7 +40,18 @@ const DailyOffer = () => {
                   background: ThemeColors.colorPrimaryLight,
                 }}
               >
-                <img src={offer?.imageUrl} alt="offer" />
+                {offer?.imageUrl ? (
+                  <Image
+                    src={offer.imageUrl}
+                    alt={`Slide ${offer._id}`}
+                    width={300}
+                    height={150}
+                    style={{ borderRadius: "8px" }}
+                    priority
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
               </div>
 
               {/* content */}

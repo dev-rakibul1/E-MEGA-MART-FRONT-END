@@ -99,7 +99,9 @@ export interface ISlide {
   title: string;
   description: string;
   image: string;
-  topTitle: string;
+  btnColor: string;
+  textColor: string;
+  logo: string;
 }
 
 export interface ITopSlide {

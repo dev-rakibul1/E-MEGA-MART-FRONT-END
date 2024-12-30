@@ -4,6 +4,7 @@ import { ThemeColors } from "@/theme/color";
 import { footer01, footer02 } from "@/types/Common";
 import { PhoneOutlined, WhatsAppOutlined } from "@ant-design/icons";
 import { Col, List, Row, Typography } from "antd";
+import Image from "next/image";
 
 const { Title, Text } = Typography;
 
@@ -136,15 +137,21 @@ const Footer = () => {
                 <div
                   style={{ marginTop: "15px", display: "flex", gap: "10px" }}
                 >
-                  <img
+                  <Image
                     src="https://res.cloudinary.com/dd7uhuhan/image/upload/v1735457676/astore_h00if2.png"
-                    alt="Apple Store"
+                    alt="store"
+                    width={300}
+                    height={150}
                     style={{ maxWidth: "120px", cursor: "pointer" }}
+                    priority
                   />
-                  <img
+                  <Image
                     src="https://res.cloudinary.com/dd7uhuhan/image/upload/v1735457676/gplay_n4ccvl.png"
-                    alt="Google Play"
+                    alt="store"
+                    width={300}
+                    height={150}
                     style={{ maxWidth: "120px", cursor: "pointer" }}
+                    priority
                   />
                 </div>
               </div>

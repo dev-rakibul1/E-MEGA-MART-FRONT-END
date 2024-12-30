@@ -5,6 +5,7 @@ import "./Product.css";
 
 import { IProduct } from "@/types/Common";
 import { Typography } from "antd";
+import Image from "next/image";
 import Link from "next/link";
 const { Text, Paragraph } = Typography;
 
@@ -28,7 +29,18 @@ const ProductCart = ({ product }: { product: IProduct }) => {
           className="product-cart-image"
           style={{ background: ThemeColors.colorPrimaryLight }}
         >
-          <img src={product?.imageUrl} alt="product-image" />
+          {product?.imageUrl ? (
+            <Image
+              src={product.imageUrl}
+              alt={`${product._id}`}
+              width={300}
+              height={150}
+              style={{ borderRadius: "8px" }}
+              priority
+            />
+          ) : (
+            <p>No image available</p>
+          )}
         </div>
 
         {/* Content */}

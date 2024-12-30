@@ -12,6 +12,7 @@ import { DeleteOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import type { DrawerProps } from "antd";
 
 import { Button, Card, Col, Drawer, Row, Space, Typography } from "antd";
+import Image from "next/image";
 import { useState } from "react";
 
 const { Title, Text } = Typography;
@@ -89,7 +90,7 @@ const AddToProductCart = ({ open, setOpen }: Props) => {
             <Row align="middle" gutter={[16, 16]}>
               {/* Product Image */}
               <Col xs={8} sm={8} lg={8}>
-                <img
+                <Image
                   src={product.imageUrl}
                   alt={product.name}
                   style={{
