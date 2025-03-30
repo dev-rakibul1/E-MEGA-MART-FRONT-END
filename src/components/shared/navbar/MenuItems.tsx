@@ -1,9 +1,16 @@
 import { ENUM_USER_ROLE } from "@/lib/role";
-import { ThemeColors } from "@/theme/color";
 import {
-  DownOutlined,
+  ClockCircleOutlined,
+  CrownOutlined,
+  GiftOutlined,
+  HomeOutlined,
+  MobileOutlined,
   QuestionCircleOutlined,
+  ShoppingOutlined,
+  SkinOutlined,
   SwapRightOutlined,
+  ThunderboltOutlined,
+  TrophyOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import Link from "next/link";
@@ -16,111 +23,60 @@ const sidebarItems = (roleInfo: string) => {
     {
       label: <Link href="/">Home</Link>,
       key: `/${role}/`,
+      icon: <HomeOutlined />,
     },
   ];
-  // groceries
+  // Mobiles
   const groceries: MenuProps["items"] = [
     {
-      label: (
-        <span>
-          Groceries
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
-      key: `/${role}/groceries`,
-      children: [
-        {
-          label: <Link href={`/groceries-item-1`}>Groceries item 1</Link>,
-          key: `/groceries-item-1`,
-          icon: <SwapRightOutlined />,
-        },
-      ],
+      label: <Link href={`/mobiles`}>Mobile</Link>,
+      key: `/mobiles`,
+      icon: <MobileOutlined />,
     },
   ];
 
-  // premium Fruits
-  const premiumFruits: MenuProps["items"] = [
+  // Jewellery
+  const jewellery: MenuProps["items"] = [
     {
-      label: (
-        <span>
-          Premium Fruits
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
-      key: `/premium-fruits`,
-      children: [
-        {
-          label: (
-            <Link href={`/services/front-end-service`}>Front-end Service</Link>
-          ),
-          key: `/services/front-end-service`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: (
-            <Link href={`/services/backend-service`}>Backend Service</Link>
-          ),
-          key: `/services/backend-service`,
-          icon: <SwapRightOutlined />,
-        },
-      ],
+      label: <Link href={`/jewellery`}>Jewellery</Link>,
+      key: `/jewellery`,
+      icon: <CrownOutlined />,
     },
   ];
 
-  //  Home & Kitchen
-  const homeAndKitchen: MenuProps["items"] = [
+  // clothes
+  const clothes: MenuProps["items"] = [
     {
-      label: (
-        <span>
-          Home & Kitchen
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
-      key: `/${role}/home-and-kitchen`,
-      children: [
-        {
-          label: "Home kitchen 01",
-          key: `/${role}/kitchen1`,
-          icon: <SwapRightOutlined />,
-        },
-      ],
+      label: <Link href={`/clothes`}>Clothes</Link>,
+      key: `/clothes`,
+      icon: <SkinOutlined />,
+    },
+  ];
+
+  // watch
+  const watch: MenuProps["items"] = [
+    {
+      label: <Link href={`/watch`}>Watch</Link>,
+      key: `/watch`,
+      icon: <ClockCircleOutlined />,
+    },
+  ];
+
+  // shop
+  const shop: MenuProps["items"] = [
+    {
+      label: <Link href={`/shoping`}>Shoping</Link>,
+      key: `/shoping`,
+      icon: <ShoppingOutlined />,
     },
   ];
 
   // Fashion
   const fashion: MenuProps["items"] = [
     {
-      label: (
-        <span>
-          Fashion
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
+      label: "Fashion",
       key: `/${role}/fashion`,
+      icon: <GiftOutlined />,
 
       children: [
         {
@@ -150,19 +106,9 @@ const sidebarItems = (roleInfo: string) => {
   // Electronics
   const electronics: MenuProps["items"] = [
     {
-      label: (
-        <span>
-          Electronics
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
+      label: "Electronics",
       key: `/${role}/electronics`,
+      icon: <ThunderboltOutlined />,
 
       children: [
         {
@@ -174,129 +120,12 @@ const sidebarItems = (roleInfo: string) => {
     },
   ];
 
-  // Beauty
-  const beauty: MenuProps["items"] = [
-    {
-      label: (
-        <span>
-          Beauty
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
-      key: `/${role}/beauty`,
-      children: [
-        {
-          label: "Beauty 01",
-          key: `/${role}/Beauty 01`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Beauty 02",
-          key: `/${role}/Beauty 02`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Beauty 03",
-          key: `/${role}/Beauty 03`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Beauty 04",
-          key: `/${role}/Beauty 04`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Beauty 05",
-          key: `/${role}/Beauty 05`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Beauty 06",
-          key: `/${role}/Beauty 06`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Beauty 07",
-          key: `/${role}/Beauty 07`,
-          icon: <SwapRightOutlined />,
-        },
-      ],
-    },
-  ];
-
-  // Home Improvement
-  const homeImprovement: MenuProps["items"] = [
-    {
-      label: (
-        <span>
-          Home Improvement
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
-      key: `/${role}/home-improvement`,
-      children: [
-        {
-          label: "Home Improvement 01",
-          key: `/${role}/home-improvement 01`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Home Improvement 02",
-          key: `/${role}/home-improvement 02`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Home Improvement 03",
-          key: `/${role}/home-improvement 03`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Home Improvement 04",
-          key: `/${role}/home-improvement 04`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Home Improvement 05",
-          key: `/${role}/home-improvement 05`,
-          icon: <SwapRightOutlined />,
-        },
-        {
-          label: "Home Improvement 06",
-          key: `/${role}/home-improvement 06`,
-          icon: <SwapRightOutlined />,
-        },
-      ],
-    },
-  ];
-
   // Sports, Toys & Luggage
   const sportsToysLuggage: MenuProps["items"] = [
     {
-      label: (
-        <span>
-          Sports, Toys & Luggage
-          <DownOutlined
-            style={{
-              fontSize: "12px",
-              color: ThemeColors.colorPrimary,
-              marginLeft: "7px",
-            }}
-          />
-        </span>
-      ),
+      label: "Sports & Toys",
       key: `/${role}/sports-toys-luggage`,
+      icon: <TrophyOutlined />,
 
       children: [
         {
@@ -342,49 +171,51 @@ const sidebarItems = (roleInfo: string) => {
 
   const superAdmin = [
     ...defaultHomePage,
+    ...shop,
     ...groceries,
-    ...premiumFruits,
-    ...homeAndKitchen,
+    ...jewellery,
+    ...clothes,
+    ...watch,
     ...fashion,
     ...electronics,
-    ...beauty,
-    ...homeImprovement,
     ...sportsToysLuggage,
     ...dashboard,
   ];
   const admin = [
     ...defaultHomePage,
+    ...shop,
     ...groceries,
-    ...premiumFruits,
-    ...homeAndKitchen,
+    ...clothes,
+    ...watch,
+    ...jewellery,
     ...fashion,
     ...electronics,
-    ...beauty,
-    ...homeImprovement,
     ...sportsToysLuggage,
     ...dashboard,
   ];
   const moderator = [
     ...defaultHomePage,
+    ...shop,
     ...groceries,
-    ...premiumFruits,
-    ...homeAndKitchen,
+    ...clothes,
+
+    ...jewellery,
+    ...watch,
     ...fashion,
     ...electronics,
-    ...beauty,
-    ...homeImprovement,
     ...sportsToysLuggage,
     ...dashboard,
   ];
   const visitor = [
     ...defaultHomePage,
+    ...shop,
     ...groceries,
-    ...premiumFruits,
-    ...homeAndKitchen,
+
+    ...jewellery,
+    ...clothes,
+    ...watch,
     ...fashion,
     ...electronics,
-    ...beauty,
-    ...homeImprovement,
     ...sportsToysLuggage,
   ];
 

@@ -5,6 +5,7 @@ import { footer01, footer02 } from "@/types/Common";
 import { PhoneOutlined, WhatsAppOutlined } from "@ant-design/icons";
 import { Col, List, Row, Typography } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 
 const { Title, Text } = Typography;
 
@@ -28,9 +29,12 @@ const Footer = () => {
         <Row gutter={[20, 20]}>
           {/* Column 01 */}
           <Col xs={24} sm={12} lg={8}>
-            <Title level={2} style={{ color: ThemeColors.bgWhite }}>
-              MegaMart
-            </Title>
+            <Link href={`/`}>
+              {" "}
+              <Title level={2} style={{ color: ThemeColors.bgWhite }}>
+                MegaMart
+              </Title>
+            </Link>
             <article>
               <Text
                 style={{

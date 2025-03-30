@@ -12,23 +12,22 @@ import {
 import { ThemeColors } from "@/theme/color";
 import { AlignRightOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge, Space, Typography } from "antd";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import TriggerMenuItems from "./TriggerMenuItems";
 
 const { Paragraph } = Typography;
 
 const TriggerMenu = () => {
-  const [collapsed, setCollapsed] = useState<boolean>(true); // Default hidden
+  const [collapsed, setCollapsed] = useState<boolean>(true);
   const [open, setOpen] = useState(false);
-
+  const [isMobile, setIsMobile] = useState(false);
   const { products } = useAppSelector((state) => state.cart);
 
   // Toggle the sidebar's collapsed state
   const handleToggle = () => {
     setCollapsed((prev) => !prev);
   };
-
-  const [isMobile, setIsMobile] = useState(false);
 
   // Responsive device
   useEffect(() => {
@@ -56,7 +55,7 @@ const TriggerMenu = () => {
       {/* menu items */}
       <TriggerMenuItems collapsed={collapsed} onToggle={handleToggle} />
 
-      <div className={`${window.innerWidth < 992 ? "trigger-menu" : ""}`}>
+      <div className={`${isMobile ? "trigger-menu" : ""}`}>
         <div className="box-container">
           {/* Parent */}
           <div style={TriggerMenuParent}>
@@ -71,7 +70,12 @@ const TriggerMenu = () => {
                     cursor: "pointer",
                   }}
                 />
-                MegaMart
+                <Link
+                  href={`/home`}
+                  style={{ fontSize: "22px", color: ThemeColors.colorPrimary }}
+                >
+                  MegaMart
+                </Link>
               </h1>
             </div>
 
@@ -101,39 +105,32 @@ const TriggerMenu = () => {
                 </div>
 
                 {/* Shape */}
-                <div
-                  style={{
-                    margin: "0 15px",
-                  }}
-                >
+                <div style={{ margin: "0 15px" }}>
                   <Paragraph style={TriggerMenuSignShape}></Paragraph>
                 </div>
 
                 {/* Cart */}
-                <>
-                  <Space onClick={showDrawer}>
-                    <Badge count={products?.length ? products?.length : 0}>
-                      <Paragraph
+                <Space onClick={showDrawer}>
+                  <Badge count={products?.length || 0}>
+                    <Paragraph
+                      style={{
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "start",
+                      }}
+                    >
+                      <ShoppingCartOutlined
                         style={{
-                          cursor: "pointer",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "start",
+                          marginRight: "8px",
+                          color: ThemeColors.colorPrimary,
+                          fontSize: "22px",
                         }}
-                      >
-                        {" "}
-                        <ShoppingCartOutlined
-                          style={{
-                            marginRight: "8px",
-                            color: ThemeColors.colorPrimary,
-                            fontSize: "22px",
-                          }}
-                        />
-                        Cart
-                      </Paragraph>
-                    </Badge>
-                  </Space>
-                </>
+                      />
+                      Cart
+                    </Paragraph>
+                  </Badge>
+                </Space>
               </div>
             </div>
           </div>
