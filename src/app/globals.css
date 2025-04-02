@@ -114,3 +114,7 @@ a {
   visibility: hidden;
   z-index: 999;
 }
+
+.ant-image {
+  width: 100%;
+}

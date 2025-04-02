@@ -256,7 +256,7 @@ const ProductMainPage: React.FC = () => {
               preview={false}
               style={{
                 width: "100%",
-                height: "100%",
+                height: "350px",
                 objectFit: "cover",
                 filter: "brightness(0.7)",
               }}
