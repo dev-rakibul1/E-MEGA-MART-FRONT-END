@@ -83,7 +83,11 @@ interface Question {
   date: string;
 }
 
-const ProductPage: React.FC = () => {
+const ProductDetailsCom: React.FC = () => {
+  // const productsD = products
+  // const reviews = products?.reviews
+  // const productsD = products
+
   // Sample product data
   const [product, setProduct] = useState<Product>({
     id: "galaxy-s22-ultra",
@@ -94,10 +98,10 @@ const ProductPage: React.FC = () => {
     rating: 4.8,
     reviewCount: 1245,
     images: [
-      "/galaxy-s22-ultra-main.jpg",
-      "/galaxy-s22-ultra-1.jpg",
-      "/galaxy-s22-ultra-2.jpg",
-      "/galaxy-s22-ultra-3.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743320499/Galaxy_M13_iw4ndr_1_rgclsb.webp",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735395016/Galaxy_S22_Ultra_lmflpd.png",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743320499/Galaxy_M13_iw4ndr_1_rgclsb.webp",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735392718/Galaxy_M53_kfnnzo.png",
     ],
     colors: [
       { name: "Burgundy", hex: "#800020", available: true },
@@ -202,7 +206,7 @@ const ProductPage: React.FC = () => {
     product.storageOptions?.[0] || ""
   );
   const [deliveryOption, setDeliveryOption] = useState<string>("standard");
-  const [quantity, setQuantity] = useState<number>(1);
+  // const [quantity, setQuantity] = useState<number>(1);
 
   // State for filters
   const [priceRange, setPriceRange] = useState<[number, number]>([100, 1500]);
@@ -539,360 +543,367 @@ const ProductPage: React.FC = () => {
   ];
 
   return (
-    <div className="product-page">
-      {/* Breadcrumb */}
-      <div style={{ marginBottom: 16 }}>
-        <a href="#">Home</a> &gt; <a href="#">{product.category}</a> &gt;{" "}
-        <span>{product.name}</span>
-      </div>
-
-      <Row gutter={[24, 24]}>
-        {/* Product Images */}
-        <Col xs={24} md={12} lg={10}>
-          <Card
-            cover={
-              <Image
-                src={product.images[0]}
-                alt={product.name}
-                preview={{
-                  toolbarRender: (
-                    <span className="ant-image-preview-operations-operation">
-                      <LeftOutlined />
-                      <RightOutlined />
-                    </span>
-                  ),
-                }}
-              />
-            }
-          >
-            <Row gutter={[8, 8]}>
-              {product.images.map((image, index) => (
-                <Col key={index} xs={6} sm={4} md={6}>
-                  <Image
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    preview={false}
-                    style={{ cursor: "pointer", border: "1px solid #f0f0f0" }}
-                  />
-                </Col>
-              ))}
-            </Row>
-          </Card>
-        </Col>
-
-        {/* Product Details */}
-        <Col xs={24} md={12} lg={14}>
-          <div style={{ marginBottom: 16 }}>
-            <h1>{product.name}</h1>
-            <div
-              style={{ display: "flex", alignItems: "center", marginBottom: 8 }}
-            >
-              <Rate
-                allowHalf
-                defaultValue={product.rating}
-                disabled
-                style={{ marginRight: 8 }}
-              />
-              <span>({product.reviewCount} reviews)</span>
-            </div>
-
-            {product.isNew && (
-              <Tag color="green" style={{ marginBottom: 8 }}>
-                NEW
-              </Tag>
-            )}
-            {product.isFeatured && (
-              <Tag color="orange" style={{ marginBottom: 8 }}>
-                FEATURED
-              </Tag>
-            )}
-            {product.stock < 10 && (
-              <Tag color="red" style={{ marginBottom: 8 }}>
-                Only {product.stock} left in stock!
-              </Tag>
-            )}
-
-            <div style={{ marginBottom: 16 }}>
-              <span
-                style={{ fontSize: 24, fontWeight: "bold", color: "#1890ff" }}
-              >
-                ${product.price.toFixed(2)}
-              </span>
-              {product.originalPrice && (
-                <>
-                  <span
-                    style={{
-                      textDecoration: "line-through",
-                      color: "#888",
-                      marginLeft: 8,
-                    }}
-                  >
-                    ${product.originalPrice.toFixed(2)}
-                  </span>
-                  <span style={{ color: "#ff4d4f", marginLeft: 8 }}>
-                    Save ${(product.originalPrice - product.price).toFixed(2)} (
-                    {product.discount}% OFF)
-                  </span>
-                </>
-              )}
-            </div>
-
-            {product.colors && (
-              <div style={{ marginBottom: 16 }}>
-                <h3>Color: {selectedColor}</h3>
-                <Space size={8}>
-                  {product.colors.map((color) => (
-                    <Badge
-                      key={color.name}
-                      color={color.hex}
-                      style={{
-                        cursor: color.available ? "pointer" : "not-allowed",
-                        opacity: color.available ? 1 : 0.5,
-                        border:
-                          selectedColor === color.name
-                            ? "2px solid #1890ff"
-                            : "1px solid #d9d9d9",
-                        borderRadius: "50%",
-                        width: 24,
-                        height: 24,
-                      }}
-                      onClick={() =>
-                        color.available && handleColorSelect(color.name)
-                      }
-                      title={color.name}
-                    />
-                  ))}
-                </Space>
-              </div>
-            )}
-
-            {product.storageOptions && (
-              <div style={{ marginBottom: 16 }}>
-                <h3>Storage</h3>
-                <Space size={8}>
-                  {product.storageOptions.map((storage) => (
-                    <Button
-                      key={storage}
-                      type={selectedStorage === storage ? "primary" : "default"}
-                      onClick={() => handleStorageSelect(storage)}
-                    >
-                      {storage}
-                    </Button>
-                  ))}
-                </Space>
-              </div>
-            )}
-
-            <div style={{ marginBottom: 24 }}>
-              <h3>Delivery Options</h3>
-              <Radio.Group
-                onChange={handleDeliveryChange}
-                value={deliveryOption}
-              >
-                <Space direction="vertical">
-                  <Radio value="standard">
-                    Standard Delivery: FREE (3-5 business days)
-                  </Radio>
-                  <Radio value="express">
-                    Express Delivery: $9.99 (1-2 business days)
-                  </Radio>
-                </Space>
-              </Radio.Group>
-            </div>
-
-            <Space size={16} style={{ marginBottom: 24 }}>
-              <Button
-                type="primary"
-                size="large"
-                icon={<ShoppingCartOutlined />}
-                style={{ backgroundColor: "#ff4d4f", borderColor: "#ff4d4f" }}
-              >
-                Add to Cart
-              </Button>
-              <Button type="primary" size="large">
-                Buy Now
-              </Button>
-              <Button size="large" icon={<HeartOutlined />}>
-                Wishlist
-              </Button>
-            </Space>
-
-            <div>
-              <h3>Highlights</h3>
-              <ul>
-                {product.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Col>
-      </Row>
-
-      {/* Product Tabs */}
-      <div style={{ marginTop: 24 }}>
-        <Tabs activeKey={activeTab} onChange={handleTabChange}>
-          {tabItems.map((tab) => (
-            <TabPane tab={tab.label} key={tab.key}>
-              {tab.children}
-            </TabPane>
-          ))}
-        </Tabs>
-      </div>
-
-      {/* Related Products */}
-      <Divider />
-      <h2>You May Also Like</h2>
-      <Row gutter={[16, 16]}>
-        {[
-          {
-            id: "galaxy-s22",
-            name: "Galaxy S22",
-            price: 719.99,
-            originalPrice: 799.99,
-            image: "/galaxy-s22.jpg",
-          },
-          {
-            id: "iphone-13",
-            name: "iPhone 13",
-            price: 799.99,
-            originalPrice: 899.99,
-            image: "/iphone-13.jpg",
-          },
-          {
-            id: "oneplus-10-pro",
-            name: "OnePlus 10 Pro",
-            price: 899.99,
-            originalPrice: 999.99,
-            image: "/oneplus-10-pro.jpg",
-          },
-        ].map((item) => (
-          <Col key={item.id} xs={24} sm={12} md={8} lg={6}>
+    <div className="box-container">
+      <div className="product-page">
+        <Row gutter={[24, 24]}>
+          {/* Product Images */}
+          <Col xs={24} md={12} lg={10}>
             <Card
-              hoverable
-              cover={<Image src={item.image} alt={item.name} preview={false} />}
-            >
-              <Card.Meta
-                title={item.name}
-                description={
-                  <>
-                    <div style={{ marginBottom: 8 }}>
-                      <span
-                        style={{
-                          fontSize: 16,
-                          fontWeight: "bold",
-                          color: "#1890ff",
-                        }}
-                      >
-                        ${item.price.toFixed(2)}
+              cover={
+                <Image
+                  src={product.images[0]}
+                  alt={product.name}
+                  preview={{
+                    toolbarRender: (
+                      <span className="ant-image-preview-operations-operation">
+                        <LeftOutlined />
+                        <RightOutlined />
                       </span>
-                      {item.originalPrice && (
-                        <span
-                          style={{
-                            textDecoration: "line-through",
-                            color: "#888",
-                            marginLeft: 8,
-                          }}
-                        >
-                          ${item.originalPrice.toFixed(2)}
-                        </span>
-                      )}
-                    </div>
-                    <Button
-                      type="primary"
-                      block
-                      icon={<ShoppingCartOutlined />}
-                    >
-                      Add to Cart
-                    </Button>
-                  </>
-                }
-              />
+                    ),
+                  }}
+                />
+              }
+            >
+              <Row gutter={[8, 8]}>
+                {product.images.map((image, index) => (
+                  <Col key={index} xs={6} sm={4} md={6}>
+                    <Image
+                      src={image}
+                      alt={`${product.name} ${index + 1}`}
+                      preview={false}
+                      style={{ cursor: "pointer", border: "1px solid #f0f0f0" }}
+                    />
+                  </Col>
+                ))}
+              </Row>
             </Card>
           </Col>
-        ))}
-      </Row>
 
-      {/* Product Filters (can be placed in a sidebar or modal) */}
-      <div className="product-filters" style={{ marginTop: 24 }}>
-        <h2>Filter Products</h2>
-        <div style={{ background: "#fff", padding: 16, borderRadius: 8 }}>
-          <div style={{ marginBottom: 16 }}>
-            <h3>Price Range</h3>
-            <Slider
-              range
-              min={100}
-              max={1500}
-              defaultValue={priceRange}
-              onChange={(value) => setPriceRange(value)}
-              tipFormatter={(value) => `$${value}`}
-            />
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span>${priceRange[0]}</span>
-              <span>${priceRange[1]}</span>
+          {/* Product Details */}
+          <Col xs={24} md={12} lg={14}>
+            <div style={{ marginBottom: 16 }}>
+              <h1>{product.name}</h1>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: 8,
+                }}
+              >
+                <Rate
+                  allowHalf
+                  defaultValue={product.rating}
+                  disabled
+                  style={{ marginRight: 8 }}
+                />
+                <span>({product.reviewCount} reviews)</span>
+              </div>
+
+              {product.isNew && (
+                <Tag color="green" style={{ marginBottom: 8 }}>
+                  NEW
+                </Tag>
+              )}
+              {product.isFeatured && (
+                <Tag color="orange" style={{ marginBottom: 8 }}>
+                  FEATURED
+                </Tag>
+              )}
+              {product.stock < 10 && (
+                <Tag color="red" style={{ marginBottom: 8 }}>
+                  Only {product.stock} left in stock!
+                </Tag>
+              )}
+
+              <div style={{ marginBottom: 16 }}>
+                <span
+                  style={{ fontSize: 24, fontWeight: "bold", color: "#1890ff" }}
+                >
+                  ${product.price.toFixed(2)}
+                </span>
+                {product.originalPrice && (
+                  <>
+                    <span
+                      style={{
+                        textDecoration: "line-through",
+                        color: "#888",
+                        marginLeft: 8,
+                      }}
+                    >
+                      ${product.originalPrice.toFixed(2)}
+                    </span>
+                    <span style={{ color: "#ff4d4f", marginLeft: 8 }}>
+                      Save ${(product.originalPrice - product.price).toFixed(2)}{" "}
+                      ({product.discount}% OFF)
+                    </span>
+                  </>
+                )}
+              </div>
+
+              {product.colors && (
+                <div style={{ marginBottom: 16 }}>
+                  <h3>Color: {selectedColor}</h3>
+                  <Space size={8}>
+                    {product.colors.map((color) => (
+                      <Badge
+                        key={color.name}
+                        color={color.hex}
+                        style={{
+                          cursor: color.available ? "pointer" : "not-allowed",
+                          opacity: color.available ? 1 : 0.5,
+                          border:
+                            selectedColor === color.name
+                              ? "2px solid #1890ff"
+                              : "1px solid #d9d9d9",
+                          borderRadius: "50%",
+                          width: 24,
+                          height: 24,
+                        }}
+                        onClick={() =>
+                          color.available && handleColorSelect(color.name)
+                        }
+                        title={color.name}
+                      />
+                    ))}
+                  </Space>
+                </div>
+              )}
+
+              {product.storageOptions && (
+                <div style={{ marginBottom: 16 }}>
+                  <h3>Storage</h3>
+                  <Space size={8}>
+                    {product.storageOptions.map((storage) => (
+                      <Button
+                        key={storage}
+                        type={
+                          selectedStorage === storage ? "primary" : "default"
+                        }
+                        onClick={() => handleStorageSelect(storage)}
+                      >
+                        {storage}
+                      </Button>
+                    ))}
+                  </Space>
+                </div>
+              )}
+
+              <div style={{ marginBottom: 24 }}>
+                <h3>Delivery Options</h3>
+                <Radio.Group
+                  onChange={handleDeliveryChange}
+                  value={deliveryOption}
+                >
+                  <Space direction="vertical">
+                    <Radio value="standard">
+                      Standard Delivery: FREE (3-5 business days)
+                    </Radio>
+                    <Radio value="express">
+                      Express Delivery: $9.99 (1-2 business days)
+                    </Radio>
+                  </Space>
+                </Radio.Group>
+              </div>
+
+              <Space size={16} style={{ marginBottom: 24 }}>
+                <Button
+                  type="primary"
+                  size="large"
+                  icon={<ShoppingCartOutlined />}
+                  style={{ backgroundColor: "#ff4d4f", borderColor: "#ff4d4f" }}
+                >
+                  Add to Cart
+                </Button>
+                <Button type="primary" size="large">
+                  Buy Now
+                </Button>
+                <Button size="large" icon={<HeartOutlined />}>
+                  Wishlist
+                </Button>
+              </Space>
+
+              <div>
+                <h3>Highlights</h3>
+                <ul>
+                  {product.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </Col>
+        </Row>
 
-          <div style={{ marginBottom: 16 }}>
-            <h3>Brand</h3>
-            <Checkbox.Group
-              options={["Samsung", "Apple", "OnePlus", "Google", "Xiaomi"]}
-              value={selectedBrands}
-              onChange={(checkedValues) =>
-                setSelectedBrands(checkedValues as string[])
-              }
-            />
-          </div>
+        {/* Product Tabs */}
+        <div style={{ marginTop: 24 }}>
+          <Tabs activeKey={activeTab} onChange={handleTabChange}>
+            {tabItems.map((tab) => (
+              <TabPane tab={tab.label} key={tab.key}>
+                {tab.children}
+              </TabPane>
+            ))}
+          </Tabs>
+        </div>
 
-          <div style={{ marginBottom: 16 }}>
-            <h3>Customer Ratings</h3>
-            <Checkbox.Group
-              options={[
-                { label: "★★★★★ (4.5 & above)", value: 4.5 },
-                { label: "★★★★☆ (4.0 & above)", value: 4 },
-                { label: "★★★☆☆ (3.0 & above)", value: 3 },
-              ]}
-              value={selectedRatings}
-              onChange={(checkedValues) =>
-                setSelectedRatings(checkedValues as number[])
-              }
-            />
-          </div>
+        {/* Related Products */}
+        <Divider />
+        <h2>You May Also Like</h2>
+        <Row gutter={[16, 16]}>
+          {[
+            {
+              id: "galaxy-s22",
+              name: "Galaxy S22",
+              price: 719.99,
+              originalPrice: 799.99,
+              image:
+                "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735392718/Galaxy_M53_kfnnzo.png",
+            },
+            {
+              id: "iphone-13",
+              name: "iPhone 13",
+              price: 799.99,
+              originalPrice: 899.99,
+              image:
+                "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735395016/Galaxy_S22_Ultra_lmflpd.png",
+            },
+            {
+              id: "oneplus-10-pro",
+              name: "OnePlus 10 Pro",
+              price: 899.99,
+              originalPrice: 999.99,
+              image:
+                "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743320499/Galaxy_M13_iw4ndr_1_rgclsb.webp",
+            },
+          ].map((item) => (
+            <Col key={item.id} xs={24} sm={12} md={8} lg={6}>
+              <Card
+                hoverable
+                cover={
+                  <Image src={item.image} alt={item.name} preview={false} />
+                }
+              >
+                <Card.Meta
+                  title={item.name}
+                  description={
+                    <>
+                      <div style={{ marginBottom: 8 }}>
+                        <span
+                          style={{
+                            fontSize: 16,
+                            fontWeight: "bold",
+                            color: "#1890ff",
+                          }}
+                        >
+                          ${item.price.toFixed(2)}
+                        </span>
+                        {item.originalPrice && (
+                          <span
+                            style={{
+                              textDecoration: "line-through",
+                              color: "#888",
+                              marginLeft: 8,
+                            }}
+                          >
+                            ${item.originalPrice.toFixed(2)}
+                          </span>
+                        )}
+                      </div>
+                      <Button
+                        type="primary"
+                        block
+                        icon={<ShoppingCartOutlined />}
+                      >
+                        Add to Cart
+                      </Button>
+                    </>
+                  }
+                />
+              </Card>
+            </Col>
+          ))}
+        </Row>
 
-          <div style={{ marginBottom: 16 }}>
-            <h3>Features</h3>
-            <Checkbox.Group
-              options={[
-                "5G",
-                "Water Resistant",
-                "Wireless Charging",
-                "Expandable Storage",
-                "Dual SIM",
-              ]}
-              value={selectedFeatures}
-              onChange={(checkedValues) =>
-                setSelectedFeatures(checkedValues as string[])
-              }
-            />
-          </div>
+        {/* Product Filters (can be placed in a sidebar or modal) */}
+        <div className="product-filters" style={{ marginTop: 24 }}>
+          <h2>Filter Products</h2>
+          <div style={{ background: "#fff", padding: 16, borderRadius: 8 }}>
+            <div style={{ marginBottom: 16 }}>
+              <h3>Price Range</h3>
+              <Slider
+                range
+                min={100}
+                max={1500}
+                defaultValue={priceRange}
+                onChange={(value) => setPriceRange(value)}
+                tipFormatter={(value) => `$${value}`}
+              />
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span>${priceRange[0]}</span>
+                <span>${priceRange[1]}</span>
+              </div>
+            </div>
 
-          <Space>
-            <Button type="primary">Apply Filters</Button>
-            <Button
-              onClick={() => {
-                setPriceRange([100, 1500]);
-                setSelectedBrands([]);
-                setSelectedRatings([]);
-                setSelectedFeatures([]);
-              }}
-            >
-              Reset All
-            </Button>
-          </Space>
+            <div style={{ marginBottom: 16 }}>
+              <h3>Brand</h3>
+              <Checkbox.Group
+                options={["Samsung", "Apple", "OnePlus", "Google", "Xiaomi"]}
+                value={selectedBrands}
+                onChange={(checkedValues) =>
+                  setSelectedBrands(checkedValues as string[])
+                }
+              />
+            </div>
+
+            <div style={{ marginBottom: 16 }}>
+              <h3>Customer Ratings</h3>
+              <Checkbox.Group
+                options={[
+                  { label: "★★★★★ (4.5 & above)", value: 4.5 },
+                  { label: "★★★★☆ (4.0 & above)", value: 4 },
+                  { label: "★★★☆☆ (3.0 & above)", value: 3 },
+                ]}
+                value={selectedRatings}
+                onChange={(checkedValues) =>
+                  setSelectedRatings(checkedValues as number[])
+                }
+              />
+            </div>
+
+            <div style={{ marginBottom: 16 }}>
+              <h3>Features</h3>
+              <Checkbox.Group
+                options={[
+                  "5G",
+                  "Water Resistant",
+                  "Wireless Charging",
+                  "Expandable Storage",
+                  "Dual SIM",
+                ]}
+                value={selectedFeatures}
+                onChange={(checkedValues) =>
+                  setSelectedFeatures(checkedValues as string[])
+                }
+              />
+            </div>
+
+            <Space>
+              <Button type="primary">Apply Filters</Button>
+              <Button
+                onClick={() => {
+                  setPriceRange([100, 1500]);
+                  setSelectedBrands([]);
+                  setSelectedRatings([]);
+                  setSelectedFeatures([]);
+                }}
+              >
+                Reset All
+              </Button>
+            </Space>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ProductPage;
+export default ProductDetailsCom;

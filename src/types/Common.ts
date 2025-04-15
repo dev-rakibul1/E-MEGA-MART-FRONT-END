@@ -45,12 +45,12 @@ export type IProduct = {
   quantity?: number;
 };
 
-type Variant = {
-  imei?: string;
-  name: string;
-  price: number;
-  stock: number;
-};
+// type Variant = {
+//   imei?: string;
+//   name: string;
+//   price: number;
+//   stock: number;
+// };
 
 export type ICategory = {
   _id: string;
@@ -110,4 +110,84 @@ export interface ITopSlide {
   description: string;
   image: string;
   topTitle: string;
+}
+
+// product type
+// export interface IMobiles {
+//   id: string;
+//   name: string;
+//   price: number;
+//   originalPrice?: number;
+//   discount?: number;
+//   rating: number;
+//   reviewCount: number;
+//   image: string;
+//   category: string;
+//   brand: string;
+//   stock: number;
+//   isNew?: boolean;
+//   isFeatured?: boolean;
+//   isBestSeller?: boolean;
+//   tags?: string[];
+//   featureImage: string;
+// }
+
+// Product types
+export interface Variant {
+  id: number;
+  imeiNumber: string;
+  color: string;
+  ram?: string;
+  rom?: string;
+}
+
+export interface Review {
+  id: string;
+  user: string;
+  avatar: string;
+  rating: number;
+  date: string; // Date in string format
+  title: string;
+  content: string;
+  verified: boolean;
+}
+
+export interface Answer {
+  id: string;
+  user: string;
+  answer: string;
+  date: string; // Date in string format
+}
+
+export interface faq {
+  id: string;
+  user: string;
+  question: string;
+  answers: Answer[];
+  date: string; // Date in string format
+}
+
+export interface IMobiles {
+  id: string;
+  name: string;
+  price: number;
+  originalPrice?: number;
+  discount?: number;
+  rating: number;
+  reviewsCount: number;
+  stock: number;
+  category: string;
+  brand: string;
+  isNew: boolean;
+  isFeatured: boolean;
+  tags?: string[];
+  isBestSeller: boolean;
+  variants?: Variant[];
+  description: string;
+  features?: string[];
+  images?: string[];
+  image: string;
+  featureImage?: string;
+  reviews?: Review[];
+  faqs?: faq[];
 }

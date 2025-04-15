@@ -1,4 +1,4 @@
-import ProductMainPage from "@/components/products/ProductCom";
+import ProductMainPage from "@/components/products/mobiles/ProductCom";
 
 const Products = () => {
   return (
