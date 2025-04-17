@@ -1,0 +1,29 @@
+/* LightGallery custom styles */
+.gallery-container {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-gallery {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gallery-container {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+  }
+}
+
+.lg-outer {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.lg-image {
+  max-width: 100%;
+  max-height: 100%;
+}

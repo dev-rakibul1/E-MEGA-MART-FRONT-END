@@ -205,6 +205,7 @@ const ProductDetailsCom: React.FC = () => {
   const [selectedStorage, setSelectedStorage] = useState<string>(
     product.storageOptions?.[0] || ""
   );
+
   const [deliveryOption, setDeliveryOption] = useState<string>("standard");
   // const [quantity, setQuantity] = useState<number>(1);
 

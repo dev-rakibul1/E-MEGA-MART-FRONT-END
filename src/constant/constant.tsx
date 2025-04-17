@@ -1,4 +1,5 @@
 import { IMobiles, ISlide, ITopSlide } from "@/types/Common";
+export const avatar = "https://i.pravatar.cc/150?img=7";
 
 export const slides: ISlide[] = [
   {
