@@ -1,10 +1,10 @@
 "use client";
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import { HeartOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge, Button, List, Rate, Space, Tag } from "antd";
 
 type IProps = {
-  data?: IMobiles;
+  data?: IProducts;
 };
 const ProductContent = ({ data }: IProps) => {
   console.log(data);

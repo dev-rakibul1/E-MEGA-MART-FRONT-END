@@ -1,11 +1,11 @@
 "use client";
 
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import { Typography } from "antd";
 const { Title } = Typography;
 
 type IProps = {
-  data?: IMobiles;
+  data?: IProducts;
 };
 
 const Description = ({ data }: IProps) => {

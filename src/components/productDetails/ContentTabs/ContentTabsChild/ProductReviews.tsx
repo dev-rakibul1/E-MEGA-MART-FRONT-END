@@ -1,7 +1,7 @@
 "use client";
 
 import { avatar } from "@/constant/constant";
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import {
   Avatar,
   Button,
@@ -30,7 +30,7 @@ type Review = {
 };
 
 type IProps = {
-  data?: IMobiles;
+  data?: IProducts;
 };
 
 const ReviewSection = ({ data }: IProps) => {

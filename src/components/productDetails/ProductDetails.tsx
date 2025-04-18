@@ -1,5 +1,5 @@
 import { products } from "@/constant/constant";
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import { Col, Row } from "antd";
 import ContentTabs from "./ContentTabs/ContentTabs";
 import { ImagePreview } from "./ImagePreview/ImagePreview";
@@ -7,7 +7,7 @@ import ProductContent from "./ProductContent/ProductContent";
 import ProductSlider from "./SamillerSide/Slide";
 
 const ProductDetails = ({ id }: { id: string }) => {
-  const data = products?.find((pro: IMobiles) => pro.id === id);
+  const data = products?.find((pro: IProducts) => pro.id === id);
 
   return (
     <div className="box-container mt-50">

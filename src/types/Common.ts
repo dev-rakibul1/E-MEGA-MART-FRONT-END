@@ -113,7 +113,7 @@ export interface ITopSlide {
 }
 
 // product type
-// export interface IMobiles {
+// export interface IProducts {
 //   id: string;
 //   name: string;
 //   price: number;
@@ -167,7 +167,7 @@ export interface faq {
   date: string; // Date in string format
 }
 
-export interface IMobiles {
+export interface IProducts {
   id: string;
   name: string;
   price: number;
@@ -190,4 +190,13 @@ export interface IMobiles {
   featureImage?: string;
   reviews?: Review[];
   faqs?: faq[];
+
+  // Watch
+  displayType?: string;
+  os?: string;
+  batteryLife?: number;
+  waterResistance?: boolean;
+  cellular?: boolean;
+  healthFeatures?: string[];
+  colorOptions?: string[];
 }

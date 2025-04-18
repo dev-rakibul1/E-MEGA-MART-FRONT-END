@@ -1,7 +1,9 @@
 "use client";
 
+import FeatureSlider from "@/components/sliders/FeatureSlider";
+import { products as proInfo } from "@/constant/constant";
+import { IProducts } from "@/types/Common";
 import {
-  ClockCircleOutlined,
   FilterOutlined,
   FireOutlined,
   HeartFilled,
@@ -12,10 +14,8 @@ import {
   Badge,
   Button,
   Card,
-  Carousel,
   Checkbox,
   Col,
-  Collapse,
   Image,
   Input,
   Pagination,
@@ -27,169 +27,19 @@ import {
   Tag,
   Typography,
 } from "antd";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const { Title, Text } = Typography;
 const { Search } = Input;
 const { Option } = Select;
 
-interface SmartWatchProduct {
-  id: string;
-  name: string;
-  price: number;
-  originalPrice?: number;
-  discount?: number;
-  rating: number;
-  reviewCount: number;
-  image: string;
-  brand: "Apple" | "Samsung" | "Fitbit" | "Garmin" | "Huawei" | "Amazfit";
-  os:
-    | "watchOS"
-    | "Wear OS"
-    | "Fitbit OS"
-    | "Garmin OS"
-    | "HarmonyOS"
-    | "Proprietary";
-  features: string[];
-  displayType: "AMOLED" | "Retina" | "LCD" | "Memory LCD";
-  batteryLife: number; // in days
-  waterResistance: boolean;
-  cellular: boolean;
-  healthFeatures: string[];
-  colorOptions: string[];
-  isNew?: boolean;
-  isFeatured?: boolean;
-  isBestSeller?: boolean;
-}
-
 const SmartWatchMainPage: React.FC = () => {
   // Sample smart watch data
-  const [products, setProducts] = useState<SmartWatchProduct[]>([
-    {
-      id: "apple-watch-s8",
-      name: "Apple Watch Series 8",
-      price: 399.99,
-      originalPrice: 429.99,
-      discount: 7,
-      rating: 4.8,
-      reviewCount: 1245,
-      image: "/apple-watch-s8.jpg",
-      brand: "Apple",
-      os: "watchOS",
-      features: ["ECG", "Blood Oxygen", "Fall Detection", "Always-On Display"],
-      displayType: "Retina",
-      batteryLife: 1.5,
-      waterResistance: true,
-      cellular: true,
-      healthFeatures: ["Heart Rate", "Sleep Tracking", "Activity Tracking"],
-      colorOptions: ["Midnight", "Starlight", "Product Red"],
-      isFeatured: true,
-      isBestSeller: true,
-    },
-    {
-      id: "galaxy-watch5",
-      name: "Samsung Galaxy Watch 5",
-      price: 279.99,
-      originalPrice: 299.99,
-      discount: 7,
-      rating: 4.6,
-      reviewCount: 876,
-      image: "/galaxy-watch5.jpg",
-      brand: "Samsung",
-      os: "Wear OS",
-      features: [
-        "Bioelectrical Impedance",
-        "Sleep Coaching",
-        "Advanced Workout Tracking",
-      ],
-      displayType: "AMOLED",
-      batteryLife: 2,
-      waterResistance: true,
-      cellular: false,
-      healthFeatures: ["Heart Rate", "Blood Pressure", "Body Composition"],
-      colorOptions: ["Graphite", "Silver", "Pink Gold"],
-      isNew: true,
-    },
-    {
-      id: "fitbit-sense2",
-      name: "Fitbit Sense 2",
-      price: 299.95,
-      originalPrice: 329.95,
-      discount: 9,
-      rating: 4.5,
-      reviewCount: 543,
-      image: "/fitbit-sense2.jpg",
-      brand: "Fitbit",
-      os: "Fitbit OS",
-      features: ["Stress Management", "Skin Temperature", "EDA Scan"],
-      displayType: "AMOLED",
-      batteryLife: 6,
-      waterResistance: true,
-      cellular: false,
-      healthFeatures: ["Heart Rate", "SpO2", "Sleep Score"],
-      colorOptions: ["Shadow Grey", "Lunar White"],
-      isBestSeller: true,
-    },
-    {
-      id: "garmin-venu2",
-      name: "Garmin Venu 2",
-      price: 349.99,
-      originalPrice: 399.99,
-      discount: 13,
-      rating: 4.7,
-      reviewCount: 765,
-      image: "/garmin-venu2.jpg",
-      brand: "Garmin",
-      os: "Garmin OS",
-      features: ["Pulse Ox", "Body Battery", "Advanced Sleep Monitoring"],
-      displayType: "AMOLED",
-      batteryLife: 11,
-      waterResistance: true,
-      cellular: false,
-      healthFeatures: ["Heart Rate", "Respiration", "Hydration Tracking"],
-      colorOptions: ["Slate", "Silver"],
-      isFeatured: true,
-    },
-    {
-      id: "huawei-watch-gt3",
-      name: "Huawei Watch GT 3",
-      price: 199.99,
-      originalPrice: 229.99,
-      discount: 13,
-      rating: 4.4,
-      reviewCount: 432,
-      image: "/huawei-watch-gt3.jpg",
-      brand: "Huawei",
-      os: "HarmonyOS",
-      features: ["TruSeen 5.0+", "TruSleep 2.0", "Workout Modes"],
-      displayType: "AMOLED",
-      batteryLife: 14,
-      waterResistance: true,
-      cellular: false,
-      healthFeatures: ["Heart Rate", "SpO2", "Stress Monitoring"],
-      colorOptions: ["Black", "Brown", "Silver"],
-      isNew: true,
-    },
-    {
-      id: "amazfit-gtr4",
-      name: "Amazfit GTR 4",
-      price: 199.99,
-      originalPrice: 229.99,
-      discount: 13,
-      rating: 4.3,
-      reviewCount: 321,
-      image: "/amazfit-gtr4.jpg",
-      brand: "Amazfit",
-      os: "Proprietary",
-      features: ["150+ Sports Modes", "Bluetooth Calls", "Zepp OS 2.0"],
-      displayType: "AMOLED",
-      batteryLife: 14,
-      waterResistance: true,
-      cellular: false,
-      healthFeatures: ["Heart Rate", "Blood Oxygen", "Sleep Monitoring"],
-      colorOptions: ["Infinite Black", "Racetrack Grey"],
-    },
-  ]);
+
+  const products = proInfo?.filter(
+    (pro: IProducts) => pro?.category === "watch"
+  );
 
   // State for filters
   const [priceRange, setPriceRange] = useState<[number, number]>([100, 500]);
@@ -229,14 +79,14 @@ const SmartWatchMainPage: React.FC = () => {
     }
 
     // OS filter
-    if (selectedOS.length > 0 && !selectedOS.includes(product.os)) {
+    if (selectedOS.length > 0 && !selectedOS.includes(product?.os)) {
       return false;
     }
 
     // Features filter
     if (
       selectedFeatures.length > 0 &&
-      !selectedFeatures.some((f) => product.features.includes(f))
+      !selectedFeatures.some((f) => product?.features.includes(f))
     ) {
       return false;
     }
@@ -316,61 +166,9 @@ const SmartWatchMainPage: React.FC = () => {
   const featuredProducts = products.filter((p) => p.isFeatured);
 
   return (
-    <div className="smartwatch-page" style={{ padding: "24px" }}>
+    <div className="smartwatch-page box-container" style={{ padding: "24px" }}>
       {/* Hero Carousel */}
-      <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
-        {featuredProducts.map((product) => (
-          <div
-            key={product.id}
-            style={{ position: "relative", height: "400px" }}
-          >
-            <Image
-              src={product.image}
-              alt={product.name}
-              preview={false}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                filter: "brightness(0.7)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: "80px",
-                left: "80px",
-                color: "white",
-                maxWidth: "50%",
-              }}
-            >
-              <Tag
-                color="blue"
-                style={{ fontSize: "16px", padding: "4px 12px" }}
-              >
-                <ClockCircleOutlined /> {product.brand}'s Latest
-              </Tag>
-              <Title level={2} style={{ color: "white", margin: "16px 0" }}>
-                {product.name}
-              </Title>
-              <Text
-                style={{
-                  color: "white",
-                  fontSize: "18px",
-                  display: "block",
-                  marginBottom: "16px",
-                }}
-              >
-                Now at ${product.price} (Save $
-                {(product.originalPrice || 0) - product.price})
-              </Text>
-              <Button type="primary" size="large">
-                Shop Now
-              </Button>
-            </div>
-          </div>
-        ))}
-      </Carousel>
+      <FeatureSlider featuredProducts={featuredProducts} />
 
       {/* Highlight Sections */}
       <div style={{ marginBottom: "48px" }}>
@@ -663,7 +461,7 @@ const SmartWatchMainPage: React.FC = () => {
 };
 
 // Smart Watch Product Card Component
-const SmartWatchProductCard: React.FC<{ product: SmartWatchProduct }> = ({
+const SmartWatchProductCard: React.FC<{ product: IProducts }> = ({
   product,
 }) => {
   return (
@@ -680,83 +478,76 @@ const SmartWatchProductCard: React.FC<{ product: SmartWatchProduct }> = ({
       <Card
         hoverable
         cover={
-          <Image
-            src={product.image}
-            alt={product.name}
-            preview={false}
-            style={{
-              height: "200px",
-              objectFit: "contain",
-              padding: "16px",
-              backgroundColor: "#f8f8f8",
-            }}
-          />
+          <Link href={`/watch/details/${product?.id}`}>
+            <Image
+              src={product.image}
+              alt={product.name}
+              preview={false}
+              style={{
+                height: "200px",
+                objectFit: "contain",
+                padding: "16px",
+                backgroundColor: "#f8f8f8",
+              }}
+            />
+          </Link>
         }
         actions={[
+          // eslint-disable-next-line react/jsx-key
           <Button type="primary" icon={<ShoppingCartOutlined />} block>
             Add to Cart
           </Button>,
         ]}
       >
-        <div style={{ marginBottom: "8px" }}>
-          <Text type="secondary">{product.brand}</Text>
-          {product.isBestSeller && (
-            <Tag color="gold" style={{ marginLeft: "8px" }}>
-              Best Seller
-            </Tag>
-          )}
-        </div>
-        <Title
-          level={5}
-          style={{ marginBottom: "8px", minHeight: "44px" }}
-          ellipsis={{ rows: 2 }}
-        >
-          {product.name}
-        </Title>
+        <Link href={`/watch/details/${product?.id}`}>
+          <div style={{ marginBottom: "8px" }}>
+            <Text type="secondary">{product.brand}</Text>
+            {product.isBestSeller && (
+              <Tag color="gold" style={{ marginLeft: "8px" }}>
+                Best Seller
+              </Tag>
+            )}
+          </div>
+          <Title
+            level={5}
+            style={{ marginBottom: "8px", minHeight: "44px" }}
+            ellipsis={{ rows: 2 }}
+          >
+            {product.name}
+          </Title>
 
-        <div style={{ marginBottom: "8px" }}>
-          <Rate
-            disabled
-            allowHalf
-            defaultValue={product.rating}
-            style={{ fontSize: "14px" }}
-          />
-          <Text type="secondary" style={{ marginLeft: "8px" }}>
-            ({product.reviewCount})
-          </Text>
-        </div>
-
-        <div style={{ marginBottom: "8px" }}>
-          <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
-            ${product.price.toFixed(2)}
-          </Text>
-          {product.originalPrice && (
-            <Text delete type="secondary" style={{ marginLeft: "8px" }}>
-              ${product.originalPrice.toFixed(2)}
+          <div style={{ marginBottom: "8px" }}>
+            <Rate
+              disabled
+              allowHalf
+              defaultValue={product.rating}
+              style={{ fontSize: "14px" }}
+            />
+            <Text type="secondary" style={{ marginLeft: "8px" }}>
+              ({product.reviewsCount})
             </Text>
-          )}
-        </div>
+          </div>
 
-        <div style={{ marginBottom: "8px" }}>
-          <Space size={[4, 4]} wrap>
-            <Tag>{product.os}</Tag>
-            <Tag>{product.batteryLife} day battery</Tag>
-            {product.waterResistance && <Tag color="blue">Waterproof</Tag>}
-            {product.cellular && <Tag color="green">Cellular</Tag>}
-          </Space>
-        </div>
+          <div style={{ marginBottom: "8px" }}>
+            <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
+              ${product.price.toFixed(2)}
+            </Text>
+            {product.originalPrice && (
+              <Text delete type="secondary" style={{ marginLeft: "8px" }}>
+                ${product.originalPrice.toFixed(2)}
+              </Text>
+            )}
+          </div>
 
-        <div style={{ marginTop: "8px" }}>
-          <Collapse ghost size="small">
-            <Collapse.Panel header="Key Features" key="1">
-              <ul style={{ paddingLeft: "16px", margin: 0 }}>
-                {product.features.slice(0, 3).map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </Collapse.Panel>
-          </Collapse>
-        </div>
+          <div style={{ marginBottom: "8px" }}>
+            <Space size={[4, 4]} wrap>
+              <Tag>{product.os}</Tag>
+              <Tag>{product.batteryLife} day battery</Tag>
+              {product.waterResistance && <Tag color="blue">Waterproof</Tag>}
+              {product.cellular && <Tag color="green">Cellular</Tag>}
+            </Space>
+          </div>
+        </Link>
       </Card>
     </Badge.Ribbon>
   );

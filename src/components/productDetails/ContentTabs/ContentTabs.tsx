@@ -1,4 +1,4 @@
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import { Tabs, TabsProps } from "antd";
 import Description from "./ContentTabsChild/Descriptions";
 import ProductFAQ from "./ContentTabsChild/ProductFAQ";
@@ -6,7 +6,7 @@ import ReviewSection from "./ContentTabsChild/ProductReviews";
 import ProductSpecifications from "./ContentTabsChild/Specifications";
 
 type IProps = {
-  data?: IMobiles;
+  data?: IProducts;
 };
 
 const ContentTabs = ({ data }: IProps) => {

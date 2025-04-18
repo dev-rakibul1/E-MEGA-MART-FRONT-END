@@ -1,6 +1,6 @@
 "use client";
 
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge, Button, Card, Rate, Space, Tag, Typography } from "antd";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const { Text, Title } = Typography;
 
 type IProps = {
-  product: IMobiles;
+  product: IProducts;
 };
 
 const ProductCard = ({ product }: IProps) => {

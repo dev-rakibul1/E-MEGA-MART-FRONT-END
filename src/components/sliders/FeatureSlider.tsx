@@ -1,6 +1,6 @@
 "use client";
 
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import { Button, Carousel, Tag, Typography } from "antd";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const { Text, Title } = Typography;
 
 type IProps = {
-  featuredProducts: IMobiles[];
+  featuredProducts: IProducts[];
 };
 
 const FeatureSlider = ({ featuredProducts }: IProps) => {
@@ -26,7 +26,7 @@ const FeatureSlider = ({ featuredProducts }: IProps) => {
     <>
       {/* Hero Carousel */}
       <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
-        {featuredProducts?.map((product: IMobiles) => (
+        {featuredProducts?.map((product: IProducts) => (
           <div
             key={product.id}
             style={{ position: "relative", height: "400px" }}

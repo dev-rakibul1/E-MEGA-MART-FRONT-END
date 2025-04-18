@@ -1,6 +1,6 @@
 "use client";
 
-import { IMobiles } from "@/types/Common";
+import { IProducts } from "@/types/Common";
 import type { CollapseProps } from "antd";
 import { Collapse, Typography } from "antd";
 
@@ -22,7 +22,7 @@ type FAQItem = {
 };
 
 type IProps = {
-  data?: IMobiles; // single item now
+  data?: IProducts; // single item now
 };
 
 const ProductFAQ = ({ data }: IProps) => {

@@ -1,4 +1,4 @@
-import { IMobiles, ISlide, ITopSlide } from "@/types/Common";
+import { IProducts, ISlide, ITopSlide } from "@/types/Common";
 export const avatar = "https://i.pravatar.cc/150?img=7";
 
 export const slides: ISlide[] = [
@@ -102,7 +102,7 @@ export const TopSlides: ITopSlide[] = [
 // Sample product data
 // ------------------------------
 
-export const products: IMobiles[] = [
+export const products: IProducts[] = [
   {
     id: "ipad-pro-m3",
     name: "iPad Pro M3 12.9-inch",
@@ -508,7 +508,7 @@ export const products: IMobiles[] = [
     rating: 4.7,
     reviewsCount: 2184,
     stock: 25,
-    category: "Smart Home",
+    category: "mobile",
     brand: "Philips",
     isNew: false,
     isFeatured: false,
@@ -712,5 +712,552 @@ export const products: IMobiles[] = [
         date: "March 23, 2025",
       },
     ],
+  },
+
+  {
+    id: "apple-watch-s8",
+    name: "Apple Watch Series 8",
+    price: 399.99,
+    originalPrice: 429.99,
+    discount: 7,
+    rating: 4.8,
+    reviewsCount: 1245,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743330063/1_pvnhdc.jpg",
+    brand: "Apple",
+    os: "watchOS",
+    features: ["ECG", "Blood Oxygen", "Fall Detection", "Always-On Display"],
+    displayType: "Retina",
+    batteryLife: 1.5,
+    waterResistance: true,
+    cellular: true,
+    healthFeatures: ["Heart Rate", "Sleep Tracking", "Activity Tracking"],
+    colorOptions: ["Midnight", "Starlight", "Product Red"],
+    isFeatured: true,
+    isBestSeller: true,
+
+    reviews: [
+      {
+        id: "1",
+        user: "Robert S.",
+        avatar: "",
+        rating: 5,
+        date: "March 24, 2025",
+        title: "Next-gen gaming at its finest",
+        content:
+          "The load times are almost non-existent compared to previous generation. Ray tracing makes games like Cyberpunk look incredible. Game Pass is the best value in gaming.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Lisa J.",
+        avatar: "",
+        rating: 4,
+        date: "March 21, 2025",
+        title: "Great but limited storage",
+        content:
+          "The performance is amazing but the 1TB storage fills up quickly with modern games. Recommend getting the expansion card.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "Mark P.",
+        question: "Can I play my Xbox One games on this console?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the Xbox Series X is backward compatible with thousands of games from Xbox One, Xbox 360, and original Xbox. Many games receive automatic enhancements on Series X.",
+            date: "March 22, 2025",
+          },
+        ],
+        date: "March 20, 2025",
+      },
+      {
+        id: "2",
+        user: "Nicole C.",
+        question: "How many controllers come with the console?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "The Xbox Series X comes with one wireless controller. Additional controllers can be purchased separately.",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 22, 2025",
+      },
+    ],
+    images: [
+      "https://images.pexels.com/photos/3945659/pexels-photo-3945659.jpeg",
+      "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
+      "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
+    stock: 0,
+    category: "watch",
+    isNew: false,
+    description: "",
+  },
+  {
+    id: "galaxy-watch5",
+    name: "Samsung Galaxy Watch 5",
+    price: 279.99,
+    originalPrice: 299.99,
+    discount: 7,
+    rating: 4.6,
+    reviewsCount: 876,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1744967482/1628523512_T500-Plus-Pro-Smart-Watch_utipwv.jpg",
+    brand: "Samsung",
+    os: "Wear OS",
+    features: [
+      "Bioelectrical Impedance",
+      "Sleep Coaching",
+      "Advanced Workout Tracking",
+    ],
+    displayType: "AMOLED",
+    batteryLife: 2,
+    waterResistance: true,
+    cellular: false,
+    healthFeatures: ["Heart Rate", "Blood Pressure", "Body Composition"],
+    colorOptions: ["Graphite", "Silver", "Pink Gold"],
+    isNew: true,
+    stock: 0,
+    category: "watch",
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+
+    reviews: [
+      {
+        id: "1",
+        user: "Robert S.",
+        avatar: "",
+        rating: 5,
+        date: "March 24, 2025",
+        title: "Next-gen gaming at its finest",
+        content:
+          "The load times are almost non-existent compared to previous generation. Ray tracing makes games like Cyberpunk look incredible. Game Pass is the best value in gaming.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Lisa J.",
+        avatar: "",
+        rating: 4,
+        date: "March 21, 2025",
+        title: "Great but limited storage",
+        content:
+          "The performance is amazing but the 1TB storage fills up quickly with modern games. Recommend getting the expansion card.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "Mark P.",
+        question: "Can I play my Xbox One games on this console?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the Xbox Series X is backward compatible with thousands of games from Xbox One, Xbox 360, and original Xbox. Many games receive automatic enhancements on Series X.",
+            date: "March 22, 2025",
+          },
+        ],
+        date: "March 20, 2025",
+      },
+      {
+        id: "2",
+        user: "Nicole C.",
+        question: "How many controllers come with the console?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "The Xbox Series X comes with one wireless controller. Additional controllers can be purchased separately.",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 22, 2025",
+      },
+    ],
+    images: [
+      "https://images.pexels.com/photos/3945659/pexels-photo-3945659.jpeg",
+      "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
+      "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
+  },
+  {
+    id: "fitbit-sense2",
+    name: "Fitbit Sense 2",
+    price: 299.95,
+    originalPrice: 329.95,
+    discount: 9,
+    rating: 4.5,
+    reviewsCount: 543,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1744967489/1700482104_watch_9_max_4_kpfmal.jpg",
+    brand: "Fitbit",
+    os: "Fitbit OS",
+    features: ["Stress Management", "Skin Temperature", "EDA Scan"],
+    displayType: "AMOLED",
+    batteryLife: 6,
+    waterResistance: true,
+    cellular: false,
+    healthFeatures: ["Heart Rate", "SpO2", "Sleep Score"],
+    colorOptions: ["Shadow Grey", "Lunar White"],
+    isBestSeller: true,
+    stock: 0,
+    category: "watch",
+    isNew: false,
+    isFeatured: false,
+    description: "",
+    reviews: [
+      {
+        id: "1",
+        user: "Robert S.",
+        avatar: "",
+        rating: 5,
+        date: "March 24, 2025",
+        title: "Next-gen gaming at its finest",
+        content:
+          "The load times are almost non-existent compared to previous generation. Ray tracing makes games like Cyberpunk look incredible. Game Pass is the best value in gaming.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Lisa J.",
+        avatar: "",
+        rating: 4,
+        date: "March 21, 2025",
+        title: "Great but limited storage",
+        content:
+          "The performance is amazing but the 1TB storage fills up quickly with modern games. Recommend getting the expansion card.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "Mark P.",
+        question: "Can I play my Xbox One games on this console?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the Xbox Series X is backward compatible with thousands of games from Xbox One, Xbox 360, and original Xbox. Many games receive automatic enhancements on Series X.",
+            date: "March 22, 2025",
+          },
+        ],
+        date: "March 20, 2025",
+      },
+      {
+        id: "2",
+        user: "Nicole C.",
+        question: "How many controllers come with the console?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "The Xbox Series X comes with one wireless controller. Additional controllers can be purchased separately.",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 22, 2025",
+      },
+    ],
+    images: [
+      "https://images.pexels.com/photos/3945659/pexels-photo-3945659.jpeg",
+      "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
+      "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
+  },
+  {
+    id: "garmin-venu2",
+    name: "Garmin Venu 2",
+    price: 349.99,
+    originalPrice: 399.99,
+    discount: 13,
+    rating: 4.7,
+    reviewsCount: 765,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1744967489/1700482104_watch_9_max_4_kpfmal.jpg",
+    brand: "Garmin",
+    os: "Garmin OS",
+    features: ["Pulse Ox", "Body Battery", "Advanced Sleep Monitoring"],
+    displayType: "AMOLED",
+    batteryLife: 11,
+    waterResistance: true,
+    cellular: false,
+    healthFeatures: ["Heart Rate", "Respiration", "Hydration Tracking"],
+    colorOptions: ["Slate", "Silver"],
+    isFeatured: true,
+    stock: 0,
+    category: "watch",
+    isNew: false,
+    isBestSeller: false,
+    description: "",
+    reviews: [
+      {
+        id: "1",
+        user: "Robert S.",
+        avatar: "",
+        rating: 5,
+        date: "March 24, 2025",
+        title: "Next-gen gaming at its finest",
+        content:
+          "The load times are almost non-existent compared to previous generation. Ray tracing makes games like Cyberpunk look incredible. Game Pass is the best value in gaming.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Lisa J.",
+        avatar: "",
+        rating: 4,
+        date: "March 21, 2025",
+        title: "Great but limited storage",
+        content:
+          "The performance is amazing but the 1TB storage fills up quickly with modern games. Recommend getting the expansion card.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "Mark P.",
+        question: "Can I play my Xbox One games on this console?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the Xbox Series X is backward compatible with thousands of games from Xbox One, Xbox 360, and original Xbox. Many games receive automatic enhancements on Series X.",
+            date: "March 22, 2025",
+          },
+        ],
+        date: "March 20, 2025",
+      },
+      {
+        id: "2",
+        user: "Nicole C.",
+        question: "How many controllers come with the console?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "The Xbox Series X comes with one wireless controller. Additional controllers can be purchased separately.",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 22, 2025",
+      },
+    ],
+    images: [
+      "https://images.pexels.com/photos/3945659/pexels-photo-3945659.jpeg",
+      "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
+      "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
+  },
+  {
+    id: "huawei-watch-gt3",
+    name: "Huawei Watch GT 3",
+    price: 199.99,
+    originalPrice: 229.99,
+    discount: 13,
+    rating: 4.4,
+    reviewsCount: 432,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1744967506/1700482104_watch_9_max_wcicmd.jpg",
+    brand: "Huawei",
+    os: "HarmonyOS",
+    features: ["TruSeen 5.0+", "TruSleep 2.0", "Workout Modes"],
+    displayType: "AMOLED",
+    batteryLife: 14,
+    waterResistance: true,
+    cellular: false,
+    healthFeatures: ["Heart Rate", "SpO2", "Stress Monitoring"],
+    colorOptions: ["Black", "Brown", "Silver"],
+    isNew: true,
+    stock: 0,
+    category: "watch",
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+    reviews: [
+      {
+        id: "1",
+        user: "Robert S.",
+        avatar: "",
+        rating: 5,
+        date: "March 24, 2025",
+        title: "Next-gen gaming at its finest",
+        content:
+          "The load times are almost non-existent compared to previous generation. Ray tracing makes games like Cyberpunk look incredible. Game Pass is the best value in gaming.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Lisa J.",
+        avatar: "",
+        rating: 4,
+        date: "March 21, 2025",
+        title: "Great but limited storage",
+        content:
+          "The performance is amazing but the 1TB storage fills up quickly with modern games. Recommend getting the expansion card.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "Mark P.",
+        question: "Can I play my Xbox One games on this console?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the Xbox Series X is backward compatible with thousands of games from Xbox One, Xbox 360, and original Xbox. Many games receive automatic enhancements on Series X.",
+            date: "March 22, 2025",
+          },
+        ],
+        date: "March 20, 2025",
+      },
+      {
+        id: "2",
+        user: "Nicole C.",
+        question: "How many controllers come with the console?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "The Xbox Series X comes with one wireless controller. Additional controllers can be purchased separately.",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 22, 2025",
+      },
+    ],
+    images: [
+      "https://images.pexels.com/photos/3945659/pexels-photo-3945659.jpeg",
+      "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
+      "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
+  },
+  {
+    id: "amazfit-gtr4",
+    name: "Amazfit GTR 4",
+    price: 199.99,
+    originalPrice: 229.99,
+    discount: 13,
+    rating: 4.3,
+    reviewsCount: 321,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1744967500/1744712990_x10_pro_max_chvzsa.jpg",
+    brand: "Amazfit",
+    os: "Proprietary",
+    features: ["150+ Sports Modes", "Bluetooth Calls", "Zepp OS 2.0"],
+    displayType: "AMOLED",
+    batteryLife: 14,
+    waterResistance: true,
+    cellular: false,
+    healthFeatures: ["Heart Rate", "Blood Oxygen", "Sleep Monitoring"],
+    colorOptions: ["Infinite Black", "Racetrack Grey"],
+    stock: 0,
+    category: "watch",
+    isNew: false,
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+    reviews: [
+      {
+        id: "1",
+        user: "Robert S.",
+        avatar: "",
+        rating: 5,
+        date: "March 24, 2025",
+        title: "Next-gen gaming at its finest",
+        content:
+          "The load times are almost non-existent compared to previous generation. Ray tracing makes games like Cyberpunk look incredible. Game Pass is the best value in gaming.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Lisa J.",
+        avatar: "",
+        rating: 4,
+        date: "March 21, 2025",
+        title: "Great but limited storage",
+        content:
+          "The performance is amazing but the 1TB storage fills up quickly with modern games. Recommend getting the expansion card.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "Mark P.",
+        question: "Can I play my Xbox One games on this console?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the Xbox Series X is backward compatible with thousands of games from Xbox One, Xbox 360, and original Xbox. Many games receive automatic enhancements on Series X.",
+            date: "March 22, 2025",
+          },
+        ],
+        date: "March 20, 2025",
+      },
+      {
+        id: "2",
+        user: "Nicole C.",
+        question: "How many controllers come with the console?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "The Xbox Series X comes with one wireless controller. Additional controllers can be purchased separately.",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 22, 2025",
+      },
+    ],
+    images: [
+      "https://images.pexels.com/photos/3945659/pexels-photo-3945659.jpeg",
+      "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg",
+      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
+      "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 import { products } from "@/constant/constant";
-import { faq, IMobiles } from "@/types/Common";
+import { faq, IProducts } from "@/types/Common";
 import {
   CheckOutlined,
   HeartOutlined,
@@ -43,7 +43,7 @@ type IProps = {
 
 const ProductDetailsCom = ({ id }: IProps) => {
   console.log(id);
-  const productsData = products?.find((p: IMobiles) => p?.id === id);
+  const productsData = products?.find((p: IProducts) => p?.id === id);
 
   const product = productsData;
   const reviews = productsData?.reviews;
