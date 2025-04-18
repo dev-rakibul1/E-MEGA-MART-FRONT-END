@@ -1,12 +1,11 @@
-/* LightGallery custom styles */
-.gallery-container {
+LightGallery custom styles .gallery-container {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .custom-gallery {
-  width: 100% !important;
-  height: 100% !important;
+  width: 500px !important;
+  height: 500px !important;
 }
 
 /* Responsive adjustments */
@@ -26,4 +25,23 @@
 .lg-image {
   max-width: 100%;
   max-height: 100%;
+}
+
+/* Custom LightGallery theme */
+.lg-outer {
+  background-color: white !important;
+}
+
+.lg-toolbar,
+.lg-sub-html {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #333 !important;
+}
+
+.lg-icon {
+  color: #333 !important;
+}
+
+.lg-thumb-outer {
+  background-color: white !important;
 }

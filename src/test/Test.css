@@ -1,0 +1,18 @@
+/* Custom LightGallery theme */
+.lg-outer {
+  background-color: white !important;
+}
+
+.lg-toolbar,
+.lg-sub-html {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #333 !important;
+}
+
+.lg-icon {
+  color: #333 !important;
+}
+
+.lg-thumb-outer {
+  background-color: white !important;
+}
