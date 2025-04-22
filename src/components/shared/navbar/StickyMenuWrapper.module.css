@@ -1,0 +1,31 @@
+.stickyMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+  z-index: 1000;
+  /* Your menu styles */
+  /* box-shadow: 0px 3px 6px 0px rgba(140, 149, 159, 0.15); */
+  background: #fff;
+}
+
+.staticMenu {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: 1s;
+}
+
+.block {
+  visibility: visible;
+  opacity: 1;
+  transition: 1s;
+}

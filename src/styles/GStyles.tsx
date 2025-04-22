@@ -72,7 +72,7 @@ export const TriggerSiderStyle: CSSProperties = {
   backgroundColor: ThemeColors.colorPrimaryLight,
   color: ThemeColors.colorTextPrimary,
   overflow: "auto",
-  height: "100%",
+  // height: "100%",
   position: "fixed",
   left: 0,
   top: 0,
@@ -80,6 +80,7 @@ export const TriggerSiderStyle: CSSProperties = {
   transition: "1s",
   opacity: "1",
   borderRight: `1px solid ${ThemeColors.colorBorder}`,
+  height: "150vh",
 };
 
 export const TriggerMenuCloseIcon: CSSProperties = {

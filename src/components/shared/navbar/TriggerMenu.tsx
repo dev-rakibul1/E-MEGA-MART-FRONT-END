@@ -1,8 +1,8 @@
 "use client";
 
 import AddToProductCart from "@/components/addCart/AddCart";
-import TriggerMenuSearch from "@/components/navbar/triggerMenu/TriggerMenuSearch";
 import TriggerMenuSignArea from "@/components/navbar/triggerMenu/TriggerMenuSignArea";
+import WishList from "@/components/navbar/triggerMenu/WishList";
 import { useAppSelector } from "@/redux/hooks";
 import {
   TriggerMenuIconParent,
@@ -79,17 +79,6 @@ const TriggerMenu = () => {
               </h1>
             </div>
 
-            {/* Search */}
-            <div
-              style={{
-                width: "50%",
-                maxWidth: "100%",
-              }}
-              className={`${isMobile ? "hidden" : "app-menu-trigger"}`}
-            >
-              <TriggerMenuSearch />
-            </div>
-
             {/* signup/signin and cart area */}
             <div style={{ cursor: "pointer" }}>
               <div
@@ -131,6 +120,11 @@ const TriggerMenu = () => {
                     </Paragraph>
                   </Badge>
                 </Space>
+
+                {/* signin/signup button */}
+                <div style={{ margin: "0 15px" }}>
+                  <WishList />
+                </div>
               </div>
             </div>
           </div>

@@ -1,91 +1,47 @@
-// "use client";
+import { useEffect, useRef, useState } from "react";
 
-// import { LightGallery as ILightGallery } from "lightgallery/lightgallery";
-// import lgThumbnail from "lightgallery/plugins/thumbnail";
-// import lgZoom from "lightgallery/plugins/zoom";
-// import LightGallery from "lightgallery/react";
-// import { useCallback, useEffect, useRef, useState } from "react";
+const ScrollPositionTracker = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const prevScrollPosition = useRef(0); // Stores the previous scroll position
 
-// // Import CSS for LightGallery
-// import "lightgallery/css/lg-thumbnail.css";
-// import "lightgallery/css/lg-zoom.css";
-// import "lightgallery/css/lightgallery.css";
+  useEffect(() => {
+    const handleScroll = () => {
+      // Update previous scroll position before setting the new one
+      prevScrollPosition.current = scrollPosition;
+      setScrollPosition(window.scrollY);
 
-// // Import your custom light theme CSS
-// import "./Test.css"; // Create this file with the above CSS
+      // Compare current and previous scroll positions
+      if (window.scrollY > prevScrollPosition.current) {
+        console.log("Scrolling DOWN");
+      } else if (window.scrollY < prevScrollPosition.current) {
+        console.log("Scrolling UP");
+      }
+    };
 
-// interface GalleryItem {
-//   src: string;
-//   thumb: string;
-// }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollPosition]); // Dependency ensures latest `scrollPosition` is used
 
-// // Type for props
-// type IProps = {
-//   data?: {
-//     images?: string[];
-//   };
-//   width?: string | number;
-//   height?: string | number;
-//   className?: string;
-// };
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: "20px",
+        right: "20px",
+        background: "rgba(0,0,0,0.7)",
+        color: "white",
+        padding: "10px",
+        borderRadius: "5px",
+        zIndex: "999999",
+      }}
+    >
+      Scrolled: <strong>{scrollPosition}px</strong> from top
+      <div>
+        Direction:{" "}
+        {scrollPosition > prevScrollPosition.current ? "↓ Down" : "↑ Up"}
+      </div>
+    </div>
+  );
+};
 
-// export const ImagePreview = ({ data }: IProps) => {
-//   const images = data?.images;
-
-//   const lightGalleryRef = useRef<ILightGallery | null>(null);
-//   const containerRef = useRef<HTMLDivElement>(null);
-//   const [galleryContainer, setGalleryContainer] = useState<HTMLElement | null>(
-//     null
-//   );
-
-//   const onInit = useCallback((detail: { instance: ILightGallery }) => {
-//     if (detail) {
-//       lightGalleryRef.current = detail.instance;
-//       lightGalleryRef.current.openGallery();
-//     }
-//   }, []);
-
-//   useEffect(() => {
-//     if (containerRef.current) {
-//       setGalleryContainer(containerRef.current);
-//     }
-//   }, []);
-
-//   // Real free-to-use images from Pexels
-//   const dynamicEl: GalleryItem[] = [
-//     {
-//       src: "https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg",
-//       thumb:
-//         "https://images.pexels.com/photos/1716763/pexels-photo-1716763.jpeg",
-//     },
-//     {
-//       src: "https://images.pexels.com/photos/15286/pexels-photo.jpg",
-//       thumb:
-//         "https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg",
-//     },
-//     {
-//       src: "https://images.pexels.com/photos/1716763/pexels-photo-1716763.jpeg",
-//       thumb:
-//         "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
-//     },
-//   ];
-
-//   return (
-//     <div className="App">
-//       <div
-//         style={{ height: "450px", backgroundColor: "white" }}
-//         ref={containerRef}
-//       ></div>
-//       {galleryContainer && (
-//         <LightGallery
-//           container={galleryContainer}
-//           onInit={onInit}
-//           plugins={[lgZoom, lgThumbnail]}
-//           dynamic={true}
-//           dynamicEl={dynamicEl}
-//           mode="lg-fade" // Optional: adds a nice fade effect
-//         />
-//       )}
-//     </div>
-//   );
-// };
+export default ScrollPositionTracker;

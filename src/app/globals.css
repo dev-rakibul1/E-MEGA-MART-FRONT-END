@@ -99,6 +99,7 @@ a {
   transition: 1s;
   visibility: visible;
   z-index: 999;
+  height: 150vh;
 }
 .overly-out {
   position: fixed;
@@ -113,8 +114,11 @@ a {
   transition: 1s;
   visibility: hidden;
   z-index: 999;
+  height: 150vh;
 }
 
 .ant-image {
   width: 100%;
 }
+
+/* 018 60 47 60 62 */

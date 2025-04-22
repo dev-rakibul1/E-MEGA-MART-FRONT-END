@@ -5,8 +5,6 @@ import Link from "next/link";
 import React from "react";
 import sidebarItems from "./MenuItems";
 
-import TriggerMenuSearch from "@/components/navbar/triggerMenu/TriggerMenuSearch";
-import TriggerMenuSignArea from "@/components/navbar/triggerMenu/TriggerMenuSignArea";
 import {
   TriggerMenuCloseIcon,
   TriggerMenuCloseIconParent,
@@ -53,36 +51,6 @@ const TriggerMenuItems: React.FC<TriggerMenuProps> = ({
           <span style={TriggerMenuCloseIcon}>
             <CloseOutlined />
           </span>
-        </div>
-
-        {/* Search and signup button */}
-        <div className="p10">
-          <div
-            style={{
-              border: `1px solid ${ThemeColors.colorBorder}`,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-              marginTop: "5px",
-              cursor: "pointer",
-            }}
-          >
-            <TriggerMenuSearch />
-          </div>
-          <div
-            style={{
-              border: `1px solid ${ThemeColors.colorBorder}`,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-              marginTop: "5px",
-              cursor: "pointer",
-            }}
-          >
-            <TriggerMenuSignArea />
-          </div>
         </div>
 
         {/* logo area */}

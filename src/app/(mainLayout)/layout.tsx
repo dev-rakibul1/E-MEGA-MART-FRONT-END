@@ -1,14 +1,13 @@
 import Footer from "@/components/shared/footer/Footer";
-import MainMenu from "@/components/shared/navbar/MainMenu";
+import StickyMenuWrapper from "@/components/shared/navbar/StickyMenuWrapper";
 import TopMenu from "@/components/shared/navbar/TopMenu";
-import TriggerMenu from "@/components/shared/navbar/TriggerMenu";
 import Providers from "@/lib/Providers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MEGA MART ",
+  title: "MEGA MART",
   description:
-    "Mega Mart is a dynamic eCommerce website designed to meet all your shopping needs. From the latest fashion trends to essential groceries, electronics, and more, Mega Mart provides a seamless and convenient online shopping experience.",
+    "Mega Mart is a dynamic eCommerce website designed to meet all your shopping needs...",
 };
 
 export default function RootLayout({
@@ -22,8 +21,7 @@ export default function RootLayout({
         <body>
           <nav>
             <TopMenu />
-            <TriggerMenu />
-            <MainMenu />
+            <StickyMenuWrapper />
           </nav>
 
           <main>{children}</main>
