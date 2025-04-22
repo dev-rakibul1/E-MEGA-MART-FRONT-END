@@ -79,14 +79,16 @@ const SmartWatchMainPage: React.FC = () => {
     }
 
     // OS filter
-    if (selectedOS.length > 0 && !selectedOS.includes(product?.os)) {
+    if (selectedOS.length > 0 && !selectedOS.includes(product?.os || "")) {
       return false;
     }
 
     // Features filter
     if (
       selectedFeatures.length > 0 &&
-      !selectedFeatures.some((f) => product?.features.includes(f))
+      !selectedFeatures.some(
+        (f) => product.features && product.features.includes(f)
+      )
     ) {
       return false;
     }
@@ -94,7 +96,9 @@ const SmartWatchMainPage: React.FC = () => {
     // Health features filter
     if (
       selectedHealthFeatures.length > 0 &&
-      !selectedHealthFeatures.some((hf) => product.healthFeatures.includes(hf))
+      !selectedHealthFeatures.some(
+        (hf) => product.healthFeatures && product.healthFeatures.includes(hf)
+      )
     ) {
       return false;
     }
@@ -111,8 +115,8 @@ const SmartWatchMainPage: React.FC = () => {
 
     // Battery life filter
     if (
-      product.batteryLife < batteryLife[0] ||
-      product.batteryLife > batteryLife[1]
+      (product.batteryLife && product.batteryLife < batteryLife[0]) ||
+      (product.batteryLife && product.batteryLife > batteryLife[1])
     ) {
       return false;
     }
@@ -150,7 +154,7 @@ const SmartWatchMainPage: React.FC = () => {
       case "discount":
         return (b.discount || 0) - (a.discount || 0);
       case "battery":
-        return b.batteryLife - a.batteryLife;
+        return b.batteryLife! - a.batteryLife!;
       default: // 'featured'
         return (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0);
     }
@@ -197,8 +201,9 @@ const SmartWatchMainPage: React.FC = () => {
           {products
             .filter(
               (p) =>
-                p.healthFeatures.includes("ECG") ||
-                p.healthFeatures.includes("Blood Pressure")
+                (p.healthFeatures && p.healthFeatures.includes("ECG")) ||
+                (p.healthFeatures &&
+                  p.healthFeatures.includes("Blood Pressure"))
             )
             .slice(0, 4)
             .map((product) => (

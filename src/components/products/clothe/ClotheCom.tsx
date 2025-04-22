@@ -1,19 +1,19 @@
 "use client";
 
+import FeatureSlider from "@/components/sliders/FeatureSlider";
+import { products as proInfo } from "@/constant/constant";
+import { IProducts } from "@/types/Common";
 import {
   FilterOutlined,
   FireOutlined,
-  ManOutlined,
   ShoppingCartOutlined,
   SkinOutlined,
   ThunderboltOutlined,
-  WomanOutlined,
 } from "@ant-design/icons";
 import {
   Badge,
   Button,
   Card,
-  Carousel,
   Checkbox,
   Col,
   Image,
@@ -27,144 +27,18 @@ import {
   Tag,
   Typography,
 } from "antd";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const { Title, Text } = Typography;
 const { Search } = Input;
 const { Option } = Select;
 
-interface FashionProduct {
-  id: string;
-  name: string;
-  price: number;
-  originalPrice?: number;
-  discount?: number;
-  rating: number;
-  reviewCount: number;
-  image: string;
-  category: "Men" | "Women" | "Kids" | "Accessories";
-  type: "T-Shirts" | "Shirts" | "Jeans" | "Dresses" | "Shoes" | "Activewear";
-  size: string[];
-  color: string[];
-  brand: string;
-  stock: number;
-  isNew?: boolean;
-  isFeatured?: boolean;
-  isBestSeller?: boolean;
-  season?: string[];
-}
-
 const FashionMainPage: React.FC = () => {
   // Sample fashion data
-  const [products, setProducts] = useState<FashionProduct[]>([
-    {
-      id: "denim-jacket",
-      name: "Classic Denim Jacket",
-      price: 59.99,
-      originalPrice: 79.99,
-      discount: 25,
-      rating: 4.7,
-      reviewCount: 342,
-      image: "/denim-jacket.jpg",
-      category: "Men",
-      type: "Jeans",
-      size: ["S", "M", "L", "XL"],
-      color: ["Blue", "Black"],
-      brand: "Levi's",
-      stock: 15,
-      isFeatured: true,
-      isBestSeller: true,
-      season: ["Spring", "Fall"],
-    },
-    {
-      id: "summer-dress",
-      name: "Floral Summer Dress",
-      price: 39.99,
-      originalPrice: 49.99,
-      discount: 20,
-      rating: 4.8,
-      reviewCount: 215,
-      image: "/summer-dress.jpg",
-      category: "Women",
-      type: "Dresses",
-      size: ["XS", "S", "M"],
-      color: ["Pink", "White", "Yellow"],
-      brand: "Zara",
-      stock: 8,
-      isNew: true,
-      season: ["Summer"],
-    },
-    {
-      id: "sneakers",
-      name: "Running Sneakers",
-      price: 89.99,
-      originalPrice: 99.99,
-      discount: 10,
-      rating: 4.6,
-      reviewCount: 178,
-      image: "/sneakers.jpg",
-      category: "Men",
-      type: "Shoes",
-      size: ["8", "9", "10", "11"],
-      color: ["White", "Black", "Blue"],
-      brand: "Nike",
-      stock: 5,
-      season: ["All Season"],
-    },
-    {
-      id: "formal-shirt",
-      name: "Slim Fit Formal Shirt",
-      price: 29.99,
-      originalPrice: 39.99,
-      discount: 26,
-      rating: 4.5,
-      reviewCount: 432,
-      image: "/formal-shirt.jpg",
-      category: "Men",
-      type: "Shirts",
-      size: ["S", "M", "L"],
-      color: ["White", "Blue", "Gray"],
-      brand: "H&M",
-      stock: 12,
-      isBestSeller: true,
-      season: ["All Season"],
-    },
-    {
-      id: "yoga-pants",
-      name: "High-Waist Yoga Pants",
-      price: 34.99,
-      originalPrice: 44.99,
-      discount: 22,
-      rating: 4.8,
-      reviewCount: 89,
-      image: "/yoga-pants.jpg",
-      category: "Women",
-      type: "Activewear",
-      size: ["XS", "S", "M", "L"],
-      color: ["Black", "Gray", "Blue"],
-      brand: "Lululemon",
-      stock: 20,
-      isFeatured: true,
-      season: ["All Season"],
-    },
-    {
-      id: "graphic-tee",
-      name: "Vintage Graphic T-Shirt",
-      price: 19.99,
-      originalPrice: 24.99,
-      discount: 20,
-      rating: 4.4,
-      reviewCount: 287,
-      image: "/graphic-tee.jpg",
-      category: "Men",
-      type: "T-Shirts",
-      size: ["S", "M", "L", "XL"],
-      color: ["Black", "White", "Red"],
-      brand: "Urban Outfitters",
-      stock: 7,
-      season: ["Summer"],
-    },
-  ]);
+  const products = proInfo?.filter(
+    (pro: IProducts) => pro?.category === "clothes"
+  );
 
   // State for filters
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
@@ -182,11 +56,13 @@ const FashionMainPage: React.FC = () => {
 
   // Get unique values for filters
   const categories = Array.from(new Set(products.map((p) => p.category)));
-  const types = Array.from(new Set(products.map((p) => p.type)));
-  const sizes = Array.from(new Set(products.flatMap((p) => p.size)));
-  const colors = Array.from(new Set(products.flatMap((p) => p.color)));
+  const types = Array.from(new Set(products.map((p) => p.clotheType)));
+  const sizes = Array.from(new Set(products.flatMap((p) => p.clotheSize)));
+  const colors = Array.from(new Set(products.flatMap((p) => p.clotheColor)));
   const brands = Array.from(new Set(products.map((p) => p.brand)));
-  const seasons = Array.from(new Set(products.flatMap((p) => p.season || [])));
+  const seasons = Array.from(
+    new Set(products.flatMap((p) => p.clotheSeason || []))
+  );
 
   // Filter products based on selected filters
   const filteredProducts = products.filter((product) => {
@@ -204,14 +80,19 @@ const FashionMainPage: React.FC = () => {
     }
 
     // Type filter
-    if (selectedTypes.length > 0 && !selectedTypes.includes(product.type)) {
+    if (
+      selectedTypes.length > 0 &&
+      !selectedTypes.includes(product.clotheType || "")
+    ) {
       return false;
     }
 
     // Size filter
     if (
       selectedSizes.length > 0 &&
-      !selectedSizes.some((s) => product.size.includes(s))
+      !selectedSizes.some(
+        (s) => product.clotheSize && product.clotheSize.includes(s)
+      )
     ) {
       return false;
     }
@@ -219,7 +100,9 @@ const FashionMainPage: React.FC = () => {
     // Color filter
     if (
       selectedColors.length > 0 &&
-      !selectedColors.some((c) => product.color.includes(c))
+      !selectedColors.some(
+        (c) => product.clotheColor && product.clotheColor.includes(c)
+      )
     ) {
       return false;
     }
@@ -232,7 +115,7 @@ const FashionMainPage: React.FC = () => {
     // Season filter
     if (
       selectedSeasons.length > 0 &&
-      !selectedSeasons.some((s) => product.season?.includes(s))
+      !selectedSeasons.some((s) => product.clotheSeason?.includes(s))
     ) {
       return false;
     }
@@ -284,9 +167,13 @@ const FashionMainPage: React.FC = () => {
   const featuredProducts = products.filter((p) => p.isFeatured);
 
   return (
-    <div className="fashion-page" style={{ padding: "24px" }}>
+    <div className="fashion-page box-container" style={{ padding: "24px" }}>
       {/* Hero Carousel */}
-      <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
+
+      {/* Hero Carousel */}
+      <FeatureSlider featuredProducts={featuredProducts} />
+
+      {/* <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
         {featuredProducts.map((product) => (
           <div
             key={product.id}
@@ -343,7 +230,7 @@ const FashionMainPage: React.FC = () => {
             </div>
           </div>
         ))}
-      </Carousel>
+      </Carousel> */}
 
       {/* Highlight Sections */}
       <div style={{ marginBottom: "48px" }}>
@@ -353,7 +240,7 @@ const FashionMainPage: React.FC = () => {
         </Title>
         <Row gutter={[16, 16]}>
           {products
-            .filter((p) => p.season?.includes("Summer"))
+            .filter((p) => p.clotheSeason?.includes("Summer"))
             .slice(0, 4)
             .map((product) => (
               <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
@@ -422,6 +309,7 @@ const FashionMainPage: React.FC = () => {
 
       <Row gutter={[24, 24]}>
         {/* Filters Sidebar */}
+
         <Col xs={24} md={6}>
           <Card
             title={
@@ -613,9 +501,7 @@ const FashionMainPage: React.FC = () => {
 };
 
 // Fashion Product Card Component
-const FashionProductCard: React.FC<{ product: FashionProduct }> = ({
-  product,
-}) => {
+const FashionProductCard: React.FC<{ product: IProducts }> = ({ product }) => {
   return (
     <Badge.Ribbon
       text={
@@ -630,75 +516,84 @@ const FashionProductCard: React.FC<{ product: FashionProduct }> = ({
       <Card
         hoverable
         cover={
-          <Image
-            src={product.image}
-            alt={product.name}
-            preview={false}
-            style={{
-              height: "250px",
-              objectFit: "cover",
-              backgroundColor: "#f8f8f8",
-            }}
-          />
+          <Link href={`/clothes/details/${product?.id}`}>
+            <Image
+              src={product.image}
+              alt={product.name}
+              preview={false}
+              style={{
+                height: "250px",
+                objectFit: "cover",
+                backgroundColor: "#f8f8f8",
+              }}
+            />
+          </Link>
         }
         actions={[
-          <Button type="primary" icon={<ShoppingCartOutlined />} block>
+          <Button
+            key={product?.id}
+            type="primary"
+            icon={<ShoppingCartOutlined />}
+            block
+          >
             Add to Cart
           </Button>,
         ]}
       >
-        <div style={{ marginBottom: "8px" }}>
-          <Text type="secondary">{product.brand}</Text>
-          {product.isBestSeller && (
-            <Tag color="gold" style={{ marginLeft: "8px" }}>
-              Best Seller
-            </Tag>
-          )}
-        </div>
-        <Title
-          level={5}
-          style={{ marginBottom: "8px", minHeight: "44px" }}
-          ellipsis={{ rows: 2 }}
-        >
-          {product.name}
-        </Title>
+        <Link href={`/clothes/details/${product?.id}`}>
+          <div style={{ marginBottom: "8px" }}>
+            <Text type="secondary">{product.brand}</Text>
+            {product.isBestSeller && (
+              <Tag color="gold" style={{ marginLeft: "8px" }}>
+                Best Seller
+              </Tag>
+            )}
+          </div>
+          <Title
+            level={5}
+            style={{ marginBottom: "8px", minHeight: "44px" }}
+            ellipsis={{ rows: 2 }}
+          >
+            {product.name}
+          </Title>
 
-        <div style={{ marginBottom: "8px" }}>
-          <Rate
-            disabled
-            allowHalf
-            defaultValue={product.rating}
-            style={{ fontSize: "14px" }}
-          />
-          <Text type="secondary" style={{ marginLeft: "8px" }}>
-            ({product.reviewCount})
-          </Text>
-        </div>
-
-        <div style={{ marginBottom: "8px" }}>
-          <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
-            ${product.price.toFixed(2)}
-          </Text>
-          {product.originalPrice && (
-            <Text delete type="secondary" style={{ marginLeft: "8px" }}>
-              ${product.originalPrice.toFixed(2)}
+          <div style={{ marginBottom: "8px" }}>
+            <Rate
+              disabled
+              allowHalf
+              defaultValue={product.rating}
+              style={{ fontSize: "14px" }}
+            />
+            <Text type="secondary" style={{ marginLeft: "8px" }}>
+              ({product.reviewsCount})
             </Text>
+          </div>
+
+          <div style={{ marginBottom: "8px" }}>
+            <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
+              ${product.price.toFixed(2)}
+            </Text>
+            {product.originalPrice && (
+              <Text delete type="secondary" style={{ marginLeft: "8px" }}>
+                ${product.originalPrice.toFixed(2)}
+              </Text>
+            )}
+          </div>
+
+          <div style={{ marginBottom: "8px" }}>
+            <Space size={[4, 4]} wrap>
+              <Tag>{product.category}</Tag>
+              <Tag>{product.clotheType}</Tag>
+              {product.clotheColor?.map((c) => (
+                <Tag key={c}>{c}</Tag>
+              ))}
+            </Space>
+          </div>
+
+          {product.stock < 10 && (
+            <Text type="danger">Only {product.stock} left in stock!</Text>
           )}
-        </div>
-
-        <div style={{ marginBottom: "8px" }}>
-          <Space size={[4, 4]} wrap>
-            <Tag>{product.category}</Tag>
-            <Tag>{product.type}</Tag>
-            {product.color.map((c) => (
-              <Tag key={c}>{c}</Tag>
-            ))}
-          </Space>
-        </div>
-
-        {product.stock < 10 && (
-          <Text type="danger">Only {product.stock} left in stock!</Text>
-        )}
+        </Link>
       </Card>
     </Badge.Ribbon>
   );

@@ -199,4 +199,10 @@ export interface IProducts {
   cellular?: boolean;
   healthFeatures?: string[];
   colorOptions?: string[];
+
+  // Clothes
+  clotheType?: string;
+  clotheSize?: string[];
+  clotheColor?: string[];
+  clotheSeason?: string[];
 }

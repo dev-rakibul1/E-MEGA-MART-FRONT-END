@@ -1260,4 +1260,569 @@ export const products: IProducts[] = [
     featureImage:
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1735469255/Rectangle_5_kdg7xg.jpg",
   },
+
+  {
+    id: "denim-jacket",
+    name: "Classic Denim Jacket",
+    price: 59.99,
+    originalPrice: 79.99,
+    discount: 25,
+    rating: 4.7,
+    reviewsCount: 342,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294086/benjamin-r-SZoTel1Y4qc-unsplash_sfubon.jpg",
+    category: "clothes",
+    clotheType: "Jeans",
+    clotheSize: ["S", "M", "L", "XL"],
+    clotheColor: ["Blue", "Black"],
+    brand: "Levi's",
+    stock: 15,
+    isFeatured: true,
+    isBestSeller: true,
+    clotheSeason: ["Spring", "Fall"],
+    isNew: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "summer-dress",
+    name: "Floral Summer Dress",
+    price: 39.99,
+    originalPrice: 49.99,
+    discount: 20,
+    rating: 4.8,
+    reviewsCount: 215,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294104/benjamin-r-NxtxmmHc2OE-unsplash_sejmpd.jpg",
+    category: "clothes",
+    clotheType: "Dresses",
+    clotheSize: ["XS", "S", "M"],
+    clotheColor: ["Pink", "White", "Yellow"],
+    brand: "Zara",
+    stock: 8,
+    isNew: true,
+    clotheSeason: ["Summer"],
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "sneakers",
+    name: "Running Sneakers",
+    price: 89.99,
+    originalPrice: 99.99,
+    discount: 10,
+    rating: 4.6,
+    reviewsCount: 178,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294125/keagan-henman-xPJYL0l5Ii8-unsplash_ab956o.jpg",
+    category: "clothes",
+    clotheType: "Shoes",
+    clotheSize: ["8", "9", "10", "11"],
+    clotheColor: ["White", "Black", "Blue"],
+    brand: "Nike",
+    stock: 5,
+    clotheSeason: ["All Season"],
+    isNew: false,
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "formal-shirt",
+    name: "Slim Fit Formal Shirt",
+    price: 29.99,
+    originalPrice: 39.99,
+    discount: 26,
+    rating: 4.5,
+    reviewsCount: 432,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+    category: "clothes",
+    clotheType: "Shirts",
+    clotheSize: ["S", "M", "L"],
+    clotheColor: ["White", "Blue", "Gray"],
+    brand: "H&M",
+    stock: 12,
+    isBestSeller: true,
+    clotheSeason: ["All Season"],
+    isNew: false,
+    isFeatured: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "yoga-pants",
+    name: "High-Waist Yoga Pants",
+    price: 34.99,
+    originalPrice: 44.99,
+    discount: 22,
+    rating: 4.8,
+    reviewsCount: 89,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294091/benjamin-r-KF-q_SGqswg-unsplash_yctvuq.jpg",
+    category: "clothes",
+    clotheType: "Activewear",
+    clotheSize: ["XS", "S", "M", "L"],
+    clotheColor: ["Black", "Gray", "Blue"],
+    brand: "Lululemon",
+    stock: 20,
+    isFeatured: true,
+    clotheSeason: ["All Season"],
+    isNew: false,
+    isBestSeller: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "graphic-tee",
+    name: "Vintage Graphic T-Shirt",
+    price: 19.99,
+    originalPrice: 24.99,
+    discount: 20,
+    rating: 4.4,
+    reviewsCount: 287,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294106/sincerely-media-9ShY-Tq70Mc-unsplash_naofeo.jpg",
+    category: "clothes",
+    clotheType: "T-Shirts",
+    clotheSize: ["S", "M", "L", "XL"],
+    clotheColor: ["Black", "White", "Red"],
+    brand: "Urban Outfitters",
+    stock: 7,
+    clotheSeason: ["Summer"],
+    isNew: false,
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
 ];
