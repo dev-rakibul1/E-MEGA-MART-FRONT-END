@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
+import FeatureSlider from "@/components/sliders/FeatureSlider";
+import { products as proInfo } from "@/constant/constant";
+import { IProducts } from "@/types/Common";
 import {
-  CrownOutlined,
   FilterOutlined,
   FireOutlined,
   GiftOutlined,
@@ -12,7 +15,6 @@ import {
   Badge,
   Button,
   Card,
-  Carousel,
   Checkbox,
   Col,
   Image,
@@ -26,140 +28,39 @@ import {
   Tag,
   Typography,
 } from "antd";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const { Title, Text } = Typography;
 const { Search } = Input;
 const { Option } = Select;
 
-interface JewelleryProduct {
-  id: string;
-  name: string;
-  price: number;
-  originalPrice?: number;
-  discount?: number;
-  rating: number;
-  reviewCount: number;
-  image: string;
-  category: "Rings" | "Necklaces" | "Earrings" | "Bracelets" | "Watches";
-  material: "Gold" | "Silver" | "Platinum" | "Diamond" | "Pearl";
-  brand: string;
-  stock: number;
-  isNew?: boolean;
-  isFeatured?: boolean;
-  isBestSeller?: boolean;
-  tags?: string[];
-  gemstone?: string;
-}
+// interface JewelleryProduct {
+//   id: string;
+//   name: string;
+//   price: number;
+//   originalPrice?: number;
+//   discount?: number;
+//   rating: number;
+//   reviewCount: number;
+//   image: string;
+//   category: "Rings" | "Necklaces" | "Earrings" | "Bracelets" | "Watches";
+//   material: "Gold" | "Silver" | "Platinum" | "Diamond" | "Pearl";
+//   brand: string;
+//   stock: number;
+//   isNew?: boolean;
+//   isFeatured?: boolean;
+//   isBestSeller?: boolean;
+//   tags?: string[];
+//   gemstone?: string;
+// }
 
 const JewelleryMainPage: React.FC = () => {
   // Sample jewellery data
-  const [products, setProducts] = useState<JewelleryProduct[]>([
-    {
-      id: "diamond-engagement-ring",
-      name: "Solitaire Diamond Engagement Ring",
-      price: 1999.99,
-      originalPrice: 2499.99,
-      discount: 20,
-      rating: 4.9,
-      reviewCount: 342,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
-      category: "Rings",
-      material: "Diamond",
-      brand: "Tiffany & Co.",
-      stock: 3,
-      isFeatured: true,
-      isBestSeller: true,
-      tags: ["Engagement", "Wedding", "14K Gold"],
-      gemstone: "Diamond",
-    },
-    {
-      id: "pearl-necklace",
-      name: "Classic Pearl Necklace",
-      price: 499.99,
-      originalPrice: 599.99,
-      discount: 17,
-      rating: 4.7,
-      reviewCount: 215,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
-      category: "Necklaces",
-      material: "Pearl",
-      brand: "Mikimoto",
-      stock: 8,
-      isNew: true,
-      tags: ["Elegant", "Timeless"],
-      gemstone: "Pearl",
-    },
-    {
-      id: "gold-bangle",
-      name: "18K Gold Bangle Bracelet",
-      price: 899.99,
-      originalPrice: 999.99,
-      discount: 10,
-      rating: 4.6,
-      reviewCount: 178,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
-      category: "Bracelets",
-      material: "Gold",
-      brand: "Cartier",
-      stock: 5,
-      tags: ["Luxury", "Minimalist"],
-    },
-    {
-      id: "silver-hoops",
-      name: "Sterling Silver Hoop Earrings",
-      price: 129.99,
-      originalPrice: 149.99,
-      discount: 13,
-      rating: 4.5,
-      reviewCount: 432,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
-      category: "Earrings",
-      material: "Silver",
-      brand: "Pandora",
-      stock: 12,
-      isBestSeller: true,
-      tags: ["Everyday", "Versatile"],
-    },
-    {
-      id: "luxury-watch",
-      name: "Luxury Diamond Watch",
-      price: 3499.99,
-      originalPrice: 3999.99,
-      discount: 13,
-      rating: 4.8,
-      reviewCount: 89,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
-      category: "Watches",
-      material: "Diamond",
-      brand: "Rolex",
-      stock: 2,
-      isFeatured: true,
-      tags: ["Statement", "Investment"],
-      gemstone: "Diamond",
-    },
-    {
-      id: "gold-pendant",
-      name: "14K Gold Pendant Necklace",
-      price: 299.99,
-      originalPrice: 349.99,
-      discount: 14,
-      rating: 4.4,
-      reviewCount: 287,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
-      category: "Necklaces",
-      material: "Gold",
-      brand: "Kay Jewelers",
-      stock: 7,
-      tags: ["Delicate", "Everyday"],
-    },
-  ]);
+  // Sample fashion data
+  const products = proInfo?.filter(
+    (pro: IProducts) => pro?.category === "jewellery"
+  );
 
   // State for filters
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
@@ -199,7 +100,7 @@ const JewelleryMainPage: React.FC = () => {
     // Material filter
     if (
       selectedMaterials.length > 0 &&
-      !selectedMaterials.includes(product.material)
+      !selectedMaterials.includes(product?.material || "")
     ) {
       return false;
     }
@@ -264,67 +165,15 @@ const JewelleryMainPage: React.FC = () => {
   const featuredProducts = products.filter((p) => p.isFeatured);
 
   return (
-    <div className="jewellery-page" style={{ padding: "24px" }}>
+    <div className="jewellery-page box-container" style={{ padding: "24px" }}>
       {/* Hero Carousel */}
-      <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
-        {featuredProducts.map((product) => (
-          <div
-            key={product.id}
-            style={{ position: "relative", height: "400px" }}
-          >
-            <Image
-              src={product.image}
-              alt={product.name}
-              preview={false}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                filter: "brightness(0.7)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: "80px",
-                left: "80px",
-                color: "white",
-                maxWidth: "50%",
-              }}
-            >
-              <Tag
-                color="gold"
-                style={{ fontSize: "16px", padding: "4px 12px" }}
-              >
-                <CrownOutlined /> Luxury Collection
-              </Tag>
-              <Title level={2} style={{ color: "white", margin: "16px 0" }}>
-                {product.name}
-              </Title>
-              <Text
-                style={{
-                  color: "white",
-                  fontSize: "18px",
-                  display: "block",
-                  marginBottom: "16px",
-                }}
-              >
-                Now at ${product.price} (Save $
-                {(product.originalPrice || 0) - product.price})
-              </Text>
-              <Button type="primary" size="large">
-                Shop Now
-              </Button>
-            </div>
-          </div>
-        ))}
-      </Carousel>
+      <FeatureSlider featuredProducts={featuredProducts} />
 
       {/* Highlight Sections */}
       <div style={{ marginBottom: "48px" }}>
         <Title level={3} style={{ marginBottom: "16px" }}>
           <FireOutlined style={{ color: "#ff4d4f", marginRight: "8px" }} />
-          Valentine's Special
+          Valentine&apos;s Special
         </Title>
         <Row gutter={[16, 16]}>
           {products
@@ -421,6 +270,7 @@ const JewelleryMainPage: React.FC = () => {
                 step={50}
                 defaultValue={priceRange}
                 value={priceRange}
+                // @ts-ignore
                 onChange={setPriceRange}
                 tipFormatter={(value) => `$${value}`}
               />
@@ -443,6 +293,7 @@ const JewelleryMainPage: React.FC = () => {
             <div style={{ marginBottom: "24px" }}>
               <Title level={5}>Materials</Title>
               <Checkbox.Group
+                // @ts-ignore
                 options={materials}
                 value={selectedMaterials}
                 onChange={(values) => setSelectedMaterials(values as string[])}
@@ -573,7 +424,7 @@ const JewelleryMainPage: React.FC = () => {
 };
 
 // Jewellery Product Card Component
-const JewelleryProductCard: React.FC<{ product: JewelleryProduct }> = ({
+const JewelleryProductCard: React.FC<{ product: IProducts }> = ({
   product,
 }) => {
   return (
@@ -590,72 +441,81 @@ const JewelleryProductCard: React.FC<{ product: JewelleryProduct }> = ({
       <Card
         hoverable
         cover={
-          <Image
-            src={product.image}
-            alt={product.name}
-            preview={false}
-            style={{
-              height: "200px",
-              objectFit: "contain",
-              padding: "16px",
-              backgroundColor: "#fafafa",
-            }}
-          />
+          <Link href={`/jewellery/details/${product?.id}`}>
+            <Image
+              src={product.image}
+              alt={product.name}
+              preview={false}
+              style={{
+                height: "293px",
+                objectFit: "cover",
+                // padding: "5px",
+                backgroundColor: "#fafafa",
+              }}
+            />
+          </Link>
         }
         actions={[
-          <Button type="primary" icon={<ShoppingCartOutlined />} block>
+          <Button
+            key={product?.id}
+            type="primary"
+            icon={<ShoppingCartOutlined />}
+            block
+          >
             Add to Cart
           </Button>,
         ]}
       >
-        <div style={{ marginBottom: "8px" }}>
-          <Text type="secondary">{product.brand}</Text>
-          {product.isBestSeller && (
-            <Tag color="gold" style={{ marginLeft: "8px" }}>
-              Best Seller
-            </Tag>
-          )}
-        </div>
-        <Title
-          level={5}
-          style={{ marginBottom: "8px", minHeight: "44px" }}
-          ellipsis={{ rows: 2 }}
-        >
-          {product.name}
-        </Title>
+        <Link href={`/jewellery/details/${product?.id}`}>
+          <div style={{ marginBottom: "8px" }}>
+            <Text type="secondary">{product.brand}</Text>
+            {product.isBestSeller && (
+              <Tag color="gold" style={{ marginLeft: "8px" }}>
+                Best Seller
+              </Tag>
+            )}
+          </div>
+          <Title
+            level={5}
+            style={{ marginBottom: "8px", minHeight: "44px" }}
+            ellipsis={{ rows: 2 }}
+          >
+            {product.name}
+          </Title>
 
-        <div style={{ marginBottom: "8px" }}>
-          <Rate
-            disabled
-            allowHalf
-            defaultValue={product.rating}
-            style={{ fontSize: "14px" }}
-          />
-          <Text type="secondary" style={{ marginLeft: "8px" }}>
-            ({product.reviewCount})
-          </Text>
-        </div>
-
-        <div style={{ marginBottom: "8px" }}>
-          <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
-            ${product.price.toFixed(2)}
-          </Text>
-          {product.originalPrice && (
-            <Text delete type="secondary" style={{ marginLeft: "8px" }}>
-              ${product.originalPrice.toFixed(2)}
+          <div style={{ marginBottom: "8px" }}>
+            <Rate
+              disabled
+              allowHalf
+              defaultValue={product.rating}
+              style={{ fontSize: "14px" }}
+            />
+            <Text type="secondary" style={{ marginLeft: "8px" }}>
+              ({product.reviewsCount})
             </Text>
+          </div>
+
+          <div style={{ marginBottom: "8px" }}>
+            <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
+              ${product.price.toFixed(2)}
+            </Text>
+            {product.originalPrice && (
+              <Text delete type="secondary" style={{ marginLeft: "8px" }}>
+                ${product.originalPrice.toFixed(2)}
+              </Text>
+            )}
+          </div>
+
+          <div style={{ marginBottom: "8px" }}>
+            <Tag color="blue">{product.category}</Tag>
+            <Tag color="geekblue">{product.material}</Tag>
+            {product.gemstone && <Tag color="purple">{product.gemstone}</Tag>}
+          </div>
+
+          {product.stock < 5 && (
+            <Text type="danger">Only {product.stock} left in stock!</Text>
           )}
-        </div>
-
-        <div style={{ marginBottom: "8px" }}>
-          <Tag color="blue">{product.category}</Tag>
-          <Tag color="geekblue">{product.material}</Tag>
-          {product.gemstone && <Tag color="purple">{product.gemstone}</Tag>}
-        </div>
-
-        {product.stock < 5 && (
-          <Text type="danger">Only {product.stock} left in stock!</Text>
-        )}
+        </Link>
       </Card>
     </Badge.Ribbon>
   );

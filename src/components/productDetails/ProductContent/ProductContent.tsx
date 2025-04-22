@@ -1,7 +1,8 @@
 "use client";
 import { IProducts } from "@/types/Common";
 import { HeartOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { Badge, Button, List, Rate, Space, Tag } from "antd";
+import { Badge, Button, List, Rate, Space, Tag, Typography } from "antd";
+const { Title } = Typography;
 
 type IProps = {
   data?: IProducts;
@@ -12,7 +13,7 @@ const ProductContent = ({ data }: IProps) => {
   return (
     <div>
       <article>
-        <h1>{data?.name || "N/A"}</h1>
+        <Title level={1}>{`${data?.name} | ${data?.category}` || "N/A"}</Title>
 
         {/* Rating */}
         <div
@@ -76,10 +77,24 @@ const ProductContent = ({ data }: IProps) => {
           </div>
         )}
 
-        {/* Color */}
+        {/* Jewellery material */}
+        {data?.material && (
+          <div>
+            <Tag
+              color="orange"
+              style={{ marginBottom: 8, cursor: "pointer" }}
+              onClick={() => console.log(`Clicked size: ${data?.material}`)}
+            >
+              {data?.material}
+            </Tag>
+
+            <span>( Material)</span>
+          </div>
+        )}
+
+        {/* mobile Color */}
         {data?.variants && (
           <div style={{ marginBottom: 16 }}>
-            <h3>Color: </h3>
             <Space size={8}>
               {data?.variants.map((color) => (
                 <Badge
@@ -106,6 +121,54 @@ const ProductContent = ({ data }: IProps) => {
                 />
               ))}
             </Space>
+          </div>
+        )}
+
+        {/* Clothe Color */}
+        {data?.clotheColor && (
+          <div style={{ marginBottom: 16 }}>
+            <Space size={8}>
+              {data?.clotheColor.map((color) => (
+                <Badge
+                  key={color}
+                  color={color}
+                  style={{
+                    cursor: color ? "pointer" : "not-allowed",
+                    opacity: color ? 1 : 0.5,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    border:
+                      color === color
+                        ? "2px solid #1890ff"
+                        : "1px solid #d9d9d9",
+                    borderRadius: "50%",
+                    width: 24,
+                    height: 24,
+                  }}
+                  // onClick={() =>
+                  //   color.color && handleColorSelect(color.name)
+                  // }
+                  title={color}
+                />
+              ))}
+            </Space>
+          </div>
+        )}
+
+        {/* Clothe Size */}
+        {data?.clotheSize && (
+          <div>
+            {data.clotheSize.map((si: string, i: number) => (
+              <Tag
+                key={i}
+                color="orange"
+                style={{ marginBottom: 8, cursor: "pointer" }}
+                onClick={() => console.log(`Clicked size: ${si}`)} // example click handler
+              >
+                {si}
+              </Tag>
+            ))}
           </div>
         )}
 

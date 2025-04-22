@@ -1291,13 +1291,13 @@ export const products: IProducts[] = [
       "All-day battery life with fast charging",
     ],
     images: [
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294125/keagan-henman-xPJYL0l5Ii8-unsplash_ab956o.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294107/bao-bao-mlKE8dEMc_8-unsplash_nyymxm.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294104/christian-bolt-VW5VjskNXZ8-unsplash_ncxfeb.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294103/brando-makes-branding-7WE1LbSc4zM-unsplash_airhsw.jpg",
     ],
     featureImage:
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294094/geoffroy-danest-0fG6zACWGJY-unsplash_mtkqe6.jpg",
     reviews: [
       {
         id: "1",
@@ -1479,10 +1479,10 @@ export const products: IProducts[] = [
       "All-day battery life with fast charging",
     ],
     images: [
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294104/benjamin-r-NxtxmmHc2OE-unsplash_sejmpd.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294099/benjamin-r-58jMNIfE2Xg-unsplash_dcymzx.jpg",
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294097/benjamin-r-ECJWF1NxSpM-unsplash_cgszzm.jpg",
     ],
     featureImage:
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
@@ -1573,10 +1573,10 @@ export const products: IProducts[] = [
       "All-day battery life with fast charging",
     ],
     images: [
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294095/benjamin-r-ItqFmSxKnIg-unsplash_ftk4vh.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294094/benjamin-r-WdhmRPvMn7A-unsplash_ymevug.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294091/benjamin-r-KF-q_SGqswg-unsplash_yctvuq.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294086/benjamin-r-SZoTel1Y4qc-unsplash_sfubon.jpg",
     ],
     featureImage:
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
@@ -1667,10 +1667,10 @@ export const products: IProducts[] = [
       "All-day battery life with fast charging",
     ],
     images: [
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/junko-nakase-Q-72wa9-7Dg-unsplash_e7svdr.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294079/ryan-hoffman-czLSitCJ3Dw-unsplash_b8vso7.jpg",
-      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294087/rubens-nguyen-Fy7RX0gHZRM-unsplash_mrmcwb.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294078/ryan-hoffman-u6n1HrW0sdQ-unsplash_ldxpiu.jpg",
     ],
     featureImage:
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
@@ -1768,6 +1768,569 @@ export const products: IProducts[] = [
     ],
     featureImage:
       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745294083/tuananh-blue-4u3_pQklVwc-unsplash_bwczmz.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+
+  {
+    id: "diamond-engagement-ring",
+    name: "Solitaire Diamond Engagement Ring",
+    price: 1999.99,
+    originalPrice: 2499.99,
+    discount: 20,
+    rating: 4.9,
+    reviewsCount: 342,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302051/juan-burgos-3_XeNGVbTQA-unsplash_lzj5sf.jpg",
+    category: "jewellery",
+    subCategory: "Rings",
+    material: "Diamond",
+    brand: "Tiffany & Co.",
+    stock: 3,
+    isFeatured: true,
+    isBestSeller: true,
+    tags: ["Engagement", "Wedding", "14K Gold"],
+    gemstone: "Diamond",
+    isNew: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302051/juan-burgos-3_XeNGVbTQA-unsplash_lzj5sf.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302045/mansi-shah-C-XcZckjKQM-unsplash_wppxnu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302042/one-carat-store-D9vqwfE7YGI-unsplash_qh34od.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302040/max-ducourneau-6uv43p1ePrk-unsplash_yi1qve.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302040/max-ducourneau-6uv43p1ePrk-unsplash_yi1qve.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "pearl-necklace",
+    name: "Classic Pearl Necklace",
+    price: 499.99,
+    originalPrice: 599.99,
+    discount: 17,
+    rating: 4.7,
+    reviewsCount: 215,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302045/mansi-shah-C-XcZckjKQM-unsplash_wppxnu.jpg",
+    category: "jewellery",
+    subCategory: "Necklaces",
+    material: "Pearl",
+    brand: "Mikimoto",
+    stock: 8,
+    isNew: true,
+    tags: ["Elegant", "Timeless"],
+    gemstone: "Pearl",
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302040/mansi-shah-6gTgeDgbb-E-unsplash_hcvslw.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302045/mansi-shah-C-XcZckjKQM-unsplash_wppxnu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302035/harper-sunday-Vya9Ji2Eg6A-unsplash_uhdswv.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302033/andres-vera-202NAwjisYA-unsplash_nmtfw9.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302035/manish-jadhav-kC6GVlaCCzQ-unsplash_hc1ldt.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "gold-bangle",
+    name: "18K Gold Bangle Bracelet",
+    price: 899.99,
+    originalPrice: 999.99,
+    discount: 10,
+    rating: 4.6,
+    reviewsCount: 178,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302042/one-carat-store-D9vqwfE7YGI-unsplash_qh34od.jpg",
+    category: "jewellery",
+
+    material: "Gold",
+    brand: "Cartier",
+    stock: 5,
+    tags: ["Luxury", "Minimalist"],
+    isNew: false,
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+    subCategory: "Bracelets",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302035/manish-jadhav-kC6GVlaCCzQ-unsplash_hc1ldt.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302031/aditya-sethia-hVqL2OpIISg-unsplash_r7ftfl.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302031/sanjay-jain-bq_zoh2mTNQ-unsplash_bkucjt.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302031/aditya-sethia-hVqL2OpIISg-unsplash_r7ftfl.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302031/aditya-sethia-hVqL2OpIISg-unsplash_r7ftfl.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "silver-hoops",
+    name: "Sterling Silver Hoop Earrings",
+    price: 129.99,
+    originalPrice: 149.99,
+    discount: 13,
+    rating: 4.5,
+    reviewsCount: 432,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302040/max-ducourneau-6uv43p1ePrk-unsplash_yi1qve.jpg",
+    category: "jewellery",
+    subCategory: "Earrings",
+    material: "Silver",
+    brand: "Pandora",
+    stock: 12,
+    isBestSeller: true,
+    tags: ["Everyday", "Versatile"],
+    isNew: false,
+    isFeatured: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302023/anastasia-anastasia-cTM8psdeOTQ-unsplash_tec14n.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302021/alex-azabache-y2ErhoE92KA-unsplash_j1kw8o.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302017/eric-fung-Z0GZrpwcc5Y-unsplash_ik6fbj.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302009/amina-atar-5nSIpSQ5mh0-unsplash_za9jez.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302017/eric-fung-Z0GZrpwcc5Y-unsplash_ik6fbj.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "luxury-watch",
+    name: "Luxury Diamond Watch",
+    price: 3499.99,
+    originalPrice: 3999.99,
+    discount: 13,
+    rating: 4.8,
+    reviewsCount: 89,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302040/mansi-shah-6gTgeDgbb-E-unsplash_hcvslw.jpg",
+    category: "jewellery",
+    subCategory: "Watches",
+    material: "Diamond",
+    brand: "Rolex",
+    stock: 2,
+    isFeatured: true,
+    tags: ["Statement", "Investment"],
+    gemstone: "Diamond",
+    isNew: false,
+    isBestSeller: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302006/denny-muller-AKbE5xlIZXA-unsplash_jrwohu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302008/eve-maier-7uQQHORcTpc-unsplash_puweq4.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302008/shivi-wiRc22tRqX4-unsplash_dgdn7a.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302008/luisana-galicia-rGz2Z6tVaeg-unsplash_fdkyke.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302006/denny-muller-AKbE5xlIZXA-unsplash_jrwohu.jpg",
+    reviews: [
+      {
+        id: "1",
+        user: "Michael J.",
+        avatar: "",
+        rating: 5,
+        date: "March 25, 2025",
+        title: "Desktop replacement in tablet form",
+        content:
+          "The M3 chip is incredibly powerful. I've replaced my laptop with this for most tasks including photo and video editing. The XDR display is absolutely stunning.",
+        verified: true,
+      },
+      {
+        id: "2",
+        user: "Sarah L.",
+        avatar: "",
+        rating: 5,
+        date: "March 22, 2025",
+        title: "Perfect for digital artists",
+        content:
+          "The combination of Apple Pencil and this display makes digital art creation a joy. The M3 chip handles large Procreate canvases without any lag.",
+        verified: true,
+      },
+    ],
+    faqs: [
+      {
+        id: "1",
+        user: "David K.",
+        question: "Does this support the new Apple Pencil Pro?",
+        answers: [
+          {
+            id: "1-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 is compatible with both the Apple Pencil Pro and the Apple Pencil (2nd generation).",
+            date: "March 23, 2025",
+          },
+        ],
+        date: "March 21, 2025",
+      },
+      {
+        id: "2",
+        user: "Jessica M.",
+        question: "Can I connect an external display?",
+        answers: [
+          {
+            id: "2-1",
+            user: "MegaMart Support",
+            answer:
+              "Yes, the iPad Pro M3 supports external displays up to 6K resolution via its Thunderbolt/USB 4 port, including Apple Studio Display and Pro Display XDR.",
+            date: "March 24, 2025",
+          },
+        ],
+        date: "March 23, 2025",
+      },
+    ],
+  },
+  {
+    id: "gold-pendant",
+    name: "14K Gold Pendant Necklace",
+    price: 299.99,
+    originalPrice: 349.99,
+    discount: 14,
+    rating: 4.4,
+    reviewsCount: 287,
+    image:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745301988/lilartsy-ZhmbakzCBtk-unsplash_scsasb.jpg",
+    category: "jewellery",
+    subCategory: "Necklaces",
+    material: "Gold",
+    brand: "Kay Jewelers",
+    stock: 7,
+    tags: ["Delicate", "Everyday"],
+    isNew: false,
+    isFeatured: false,
+    isBestSeller: false,
+    description: "",
+
+    features: [
+      "12.9-inch Liquid Retina XDR display with ProMotion and True Tone",
+      "M3 chip with 10-core CPU and 10-core GPU",
+      "12MP Wide and 10MP Ultra Wide cameras with LiDAR Scanner",
+      "Thunderbolt/USB 4 port for high-speed connections",
+      "All-day battery life with fast charging",
+    ],
+    images: [
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302006/denny-muller-AKbE5xlIZXA-unsplash_jrwohu.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302001/amina-atar-aY8cb0w9vsM-unsplash_h3nmau.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302002/ardy-arjun-w5AKnh07ECg-unsplash_hqvfm7.jpg",
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302005/kateryna-hliznitsova-pjrPWwwYx1I-unsplash_udbbda.jpg",
+    ],
+    featureImage:
+      "https://res.cloudinary.com/dd7uhuhan/image/upload/v1745302006/denny-muller-AKbE5xlIZXA-unsplash_jrwohu.jpg",
     reviews: [
       {
         id: "1",

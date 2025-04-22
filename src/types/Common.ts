@@ -177,6 +177,7 @@ export interface IProducts {
   reviewsCount: number;
   stock: number;
   category: string;
+  subCategory?: string;
   brand: string;
   isNew: boolean;
   isFeatured: boolean;
@@ -205,4 +206,8 @@ export interface IProducts {
   clotheSize?: string[];
   clotheColor?: string[];
   clotheSeason?: string[];
+
+  // Jowellery
+  material?: string;
+  gemstone?: string;
 }

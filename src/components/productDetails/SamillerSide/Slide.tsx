@@ -75,6 +75,11 @@ const ProductSlider = ({ data }: IProps) => {
                     width={150}
                     height={200}
                     alt={item.name}
+                    style={{
+                      width: "100%",
+                      height: "297px",
+                      objectFit: "cover",
+                    }}
                   />
                 }
               >

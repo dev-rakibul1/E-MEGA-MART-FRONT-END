@@ -1,4 +1,5 @@
 "use client";
+import { products } from "@/constant/constant";
 
 import {
   AppstoreOutlined,
@@ -12,7 +13,6 @@ import {
 import {
   Button,
   Card,
-  Carousel,
   Col,
   Dropdown,
   Image,
@@ -26,7 +26,9 @@ import {
   Tag,
   Typography,
 } from "antd";
+import Link from "next/link";
 import React, { useState } from "react";
+import FeatureSlider from "../sliders/FeatureSlider";
 
 const { Title, Text } = Typography;
 const { Search } = Input;
@@ -52,127 +54,127 @@ interface Product {
 
 const UniversalShopPage: React.FC = () => {
   // Sample products from all categories
-  const [products, setProducts] = useState<Product[]>([
-    // Electronics
-    {
-      id: "galaxy-s22",
-      name: "Samsung Galaxy S22",
-      price: 799.99,
-      originalPrice: 899.99,
-      discount: 11,
-      rating: 4.7,
-      reviewCount: 1245,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743320499/Galaxy_M13_iw4ndr_1_rgclsb.webp",
-      category: "Electronics",
-      type: "Smartphone",
-      brand: "Samsung",
-      stock: 15,
-      isBestSeller: true,
-    },
-    {
-      id: "airpods-pro",
-      name: "Apple AirPods Pro",
-      price: 199.99,
-      originalPrice: 249.99,
-      discount: 20,
-      rating: 4.8,
-      reviewCount: 3421,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743329928/Apple-AirPods-Pro_b9gsky.jpg",
-      category: "Electronics",
-      type: "Headphones",
-      brand: "Apple",
-      stock: 8,
-      isFeatured: true,
-    },
+  // const [products, setProducts] = useState<Product[]>([
+  //   // Electronics
+  //   {
+  //     id: "galaxy-s22",
+  //     name: "Samsung Galaxy S22",
+  //     price: 799.99,
+  //     originalPrice: 899.99,
+  //     discount: 11,
+  //     rating: 4.7,
+  //     reviewCount: 1245,
+  //     image:
+  //       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743320499/Galaxy_M13_iw4ndr_1_rgclsb.webp",
+  //     category: "Electronics",
+  //     type: "Smartphone",
+  //     brand: "Samsung",
+  //     stock: 15,
+  //     isBestSeller: true,
+  //   },
+  //   {
+  //     id: "airpods-pro",
+  //     name: "Apple AirPods Pro",
+  //     price: 199.99,
+  //     originalPrice: 249.99,
+  //     discount: 20,
+  //     rating: 4.8,
+  //     reviewCount: 3421,
+  //     image:
+  //       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743329928/Apple-AirPods-Pro_b9gsky.jpg",
+  //     category: "Electronics",
+  //     type: "Headphones",
+  //     brand: "Apple",
+  //     stock: 8,
+  //     isFeatured: true,
+  //   },
 
-    // Fashion
-    {
-      id: "denim-jacket",
-      name: "Classic Denim Jacket",
-      price: 59.99,
-      originalPrice: 79.99,
-      discount: 25,
-      rating: 4.5,
-      reviewCount: 342,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743329928/t-shart_ypgrqv.webp",
-      category: "Fashion",
-      type: "Jacket",
-      brand: "Levi's",
-      stock: 15,
-      isNew: true,
-    },
-    {
-      id: "running-shoes",
-      name: "Men's Running Shoes",
-      price: 89.99,
-      originalPrice: 99.99,
-      discount: 10,
-      rating: 4.6,
-      reviewCount: 876,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743329928/shoes_oc7luc.avif",
-      category: "Fashion",
-      type: "Shoes",
-      brand: "Nike",
-      stock: 5,
-    },
+  //   // Fashion
+  //   {
+  //     id: "denim-jacket",
+  //     name: "Classic Denim Jacket",
+  //     price: 59.99,
+  //     originalPrice: 79.99,
+  //     discount: 25,
+  //     rating: 4.5,
+  //     reviewCount: 342,
+  //     image:
+  //       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743329928/t-shart_ypgrqv.webp",
+  //     category: "Fashion",
+  //     type: "Jacket",
+  //     brand: "Levi's",
+  //     stock: 15,
+  //     isNew: true,
+  //   },
+  //   {
+  //     id: "running-shoes",
+  //     name: "Men's Running Shoes",
+  //     price: 89.99,
+  //     originalPrice: 99.99,
+  //     discount: 10,
+  //     rating: 4.6,
+  //     reviewCount: 876,
+  //     image:
+  //       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743329928/shoes_oc7luc.avif",
+  //     category: "Fashion",
+  //     type: "Shoes",
+  //     brand: "Nike",
+  //     stock: 5,
+  //   },
 
-    // Jewelry
-    {
-      id: "diamond-ring",
-      name: "Solitaire Diamond Ring",
-      price: 1999.99,
-      originalPrice: 2499.99,
-      discount: 20,
-      rating: 4.9,
-      reviewCount: 215,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
-      category: "Jewelry",
-      type: "Ring",
-      brand: "Tiffany",
-      stock: 3,
-      isFeatured: true,
-    },
+  //   // Jewelry
+  //   {
+  //     id: "diamond-ring",
+  //     name: "Solitaire Diamond Ring",
+  //     price: 1999.99,
+  //     originalPrice: 2499.99,
+  //     discount: 20,
+  //     rating: 4.9,
+  //     reviewCount: 215,
+  //     image:
+  //       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743321693/BIDG0319R180_YAA18DIG6XXXXXXXX_ABCD00-PICS-00001-1024-66194_x0qars.webp",
+  //     category: "Jewelry",
+  //     type: "Ring",
+  //     brand: "Tiffany",
+  //     stock: 3,
+  //     isFeatured: true,
+  //   },
 
-    // Watches
-    {
-      id: "apple-watch",
-      name: "Apple Watch Series 8",
-      price: 399.99,
-      originalPrice: 429.99,
-      discount: 7,
-      rating: 4.8,
-      reviewCount: 1245,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743330063/1_pvnhdc.jpg",
-      category: "Watches",
-      type: "Smartwatch",
-      brand: "Apple",
-      stock: 12,
-      isBestSeller: true,
-    },
+  //   // Watches
+  //   {
+  //     id: "apple-watch",
+  //     name: "Apple Watch Series 8",
+  //     price: 399.99,
+  //     originalPrice: 429.99,
+  //     discount: 7,
+  //     rating: 4.8,
+  //     reviewCount: 1245,
+  //     image:
+  //       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743330063/1_pvnhdc.jpg",
+  //     category: "Watches",
+  //     type: "Smartwatch",
+  //     brand: "Apple",
+  //     stock: 12,
+  //     isBestSeller: true,
+  //   },
 
-    // Home
-    {
-      id: "air-fryer",
-      name: "Digital Air Fryer",
-      price: 89.99,
-      originalPrice: 99.99,
-      discount: 10,
-      rating: 4.7,
-      reviewCount: 543,
-      image:
-        "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743330268/ad_xdf8s1.jpg",
-      category: "Home",
-      type: "Kitchen",
-      brand: "Instant Pot",
-      stock: 7,
-    },
-  ]);
+  //   // Home
+  //   {
+  //     id: "air-fryer",
+  //     name: "Digital Air Fryer",
+  //     price: 89.99,
+  //     originalPrice: 99.99,
+  //     discount: 10,
+  //     rating: 4.7,
+  //     reviewCount: 543,
+  //     image:
+  //       "https://res.cloudinary.com/dd7uhuhan/image/upload/v1743330268/ad_xdf8s1.jpg",
+  //     category: "Home",
+  //     type: "Kitchen",
+  //     brand: "Instant Pot",
+  //     stock: 7,
+  //   },
+  // ]);
 
   // State for filters
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -272,10 +274,18 @@ const UniversalShopPage: React.FC = () => {
     </Menu>
   );
 
+  // Featured products for carousel
+  const featuredProducts = products.filter((p) => p.isFeatured);
+
   return (
-    <div className="universal-shop-page" style={{ padding: "24px" }}>
+    <div
+      className="universal-shop-page box-container"
+      style={{ padding: "24px" }}
+    >
       {/* Hero Carousel */}
-      <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
+      <FeatureSlider featuredProducts={featuredProducts} />
+
+      {/* <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
         {products
           .filter((p) => p.isFeatured)
           .slice(0, 3)
@@ -330,7 +340,7 @@ const UniversalShopPage: React.FC = () => {
               </div>
             </div>
           ))}
-      </Carousel>
+      </Carousel> */}
 
       {/* Category Tabs */}
       <div
@@ -408,69 +418,82 @@ const UniversalShopPage: React.FC = () => {
               <Card
                 hoverable
                 cover={
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    preview={false}
-                    style={{
-                      height: "200px",
-                      objectFit: "contain",
-                      padding: "16px",
-                      backgroundColor: "#f8f8f8",
-                    }}
-                  />
+                  <Link href={`/shoping/details/${product?.id}`}>
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      preview={false}
+                      style={{
+                        height: "200px",
+                        objectFit: "contain",
+                        padding: "16px",
+                        backgroundColor: "#f8f8f8",
+                      }}
+                    />
+                  </Link>
                 }
                 actions={[
-                  <Button type="primary" icon={<ShoppingCartOutlined />} block>
+                  <Button
+                    key={product?.id}
+                    type="primary"
+                    icon={<ShoppingCartOutlined />}
+                    block
+                  >
                     Add to Cart
                   </Button>,
                 ]}
               >
-                <div style={{ marginBottom: "8px" }}>
-                  <Tag color="blue">{product.category}</Tag>
-                  {product.isNew && <Tag color="green">NEW</Tag>}
-                  {product.isBestSeller && (
-                    <Tag color="orange">BEST SELLER</Tag>
-                  )}
-                </div>
+                <Link href={`/shoping/details/${product?.id}`}>
+                  <div style={{ marginBottom: "8px" }}>
+                    <Tag color="blue">{product.category}</Tag>
+                    {product.isNew && <Tag color="green">NEW</Tag>}
+                    {product.isBestSeller && (
+                      <Tag color="orange">BEST SELLER</Tag>
+                    )}
+                  </div>
 
-                <Title
-                  level={5}
-                  style={{ marginBottom: "8px" }}
-                  ellipsis={{ rows: 2 }}
-                >
-                  {product.name}
-                </Title>
+                  <Title
+                    level={5}
+                    style={{ marginBottom: "8px" }}
+                    ellipsis={{ rows: 2 }}
+                  >
+                    {product.name}
+                  </Title>
 
-                <div style={{ marginBottom: "8px" }}>
-                  <Rate
-                    disabled
-                    allowHalf
-                    defaultValue={product.rating}
-                    style={{ fontSize: "14px" }}
-                  />
-                  <Text type="secondary" style={{ marginLeft: "8px" }}>
-                    ({product.reviewCount})
-                  </Text>
-                </div>
-
-                <div style={{ marginBottom: "8px" }}>
-                  <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
-                    ${product.price.toFixed(2)}
-                  </Text>
-                  {product.originalPrice && (
-                    <Text delete type="secondary" style={{ marginLeft: "8px" }}>
-                      ${product.originalPrice.toFixed(2)}
+                  <div style={{ marginBottom: "8px" }}>
+                    <Rate
+                      disabled
+                      allowHalf
+                      defaultValue={product.rating}
+                      style={{ fontSize: "14px" }}
+                    />
+                    <Text type="secondary" style={{ marginLeft: "8px" }}>
+                      ({product.reviewsCount})
                     </Text>
-                  )}
-                  {product.discount && (
-                    <Tag color="red" style={{ marginLeft: "8px" }}>
-                      Save {product.discount}%
-                    </Tag>
-                  )}
-                </div>
+                  </div>
 
-                <Text type="secondary">{product.brand}</Text>
+                  <div style={{ marginBottom: "8px" }}>
+                    <Text strong style={{ fontSize: "18px", color: "#1890ff" }}>
+                      ${product.price.toFixed(2)}
+                    </Text>
+                    {product.originalPrice && (
+                      <Text
+                        delete
+                        type="secondary"
+                        style={{ marginLeft: "8px" }}
+                      >
+                        ${product.originalPrice.toFixed(2)}
+                      </Text>
+                    )}
+                    {product.discount && (
+                      <Tag color="red" style={{ marginLeft: "8px" }}>
+                        Save {product.discount}%
+                      </Tag>
+                    )}
+                  </div>
+
+                  <Text type="secondary">{product.brand}</Text>
+                </Link>
               </Card>
             </Col>
           ))
