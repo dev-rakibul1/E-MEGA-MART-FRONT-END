@@ -4,7 +4,7 @@ import { ThemeColors } from "@/theme/color";
 import { Typography } from "antd";
 const { Paragraph } = Typography;
 
-import { UserOutlined } from "@ant-design/icons";
+import { LoginOutlined, UserAddOutlined } from "@ant-design/icons";
 
 const TriggerMenuSignArea = () => {
   return (
@@ -17,14 +17,33 @@ const TriggerMenuSignArea = () => {
           height: "100%",
         }}
       >
-        <UserOutlined
+        <UserAddOutlined
           style={{
             marginRight: "8px",
             color: ThemeColors.colorPrimary,
-            fontSize: "22px",
+            fontSize: "17px",
           }}
         />
-        Sign Up/Sign In
+        Sign Up
+      </Paragraph>
+
+      <Paragraph
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
+          margin: "0 15px",
+        }}
+      >
+        <LoginOutlined
+          style={{
+            marginRight: "8px",
+            color: ThemeColors.colorPrimary,
+            fontSize: "17px",
+          }}
+        />
+        Sign In
       </Paragraph>
     </>
   );

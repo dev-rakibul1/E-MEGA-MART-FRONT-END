@@ -21,7 +21,7 @@ const WishList = () => {
           style={{
             marginRight: "8px",
             color: ThemeColors.colorPrimary,
-            fontSize: "22px",
+            fontSize: "17px",
           }}
         />
         Wishlist

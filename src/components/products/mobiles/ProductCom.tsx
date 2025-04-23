@@ -219,10 +219,12 @@ const ProductMainPage: React.FC = () => {
     </Card>
   );
 
+  // const [createAddToCart]=useCreateAddToCartMutation()
+
   return (
     <>
       <div className="box-container">
-        <div className="product-main-page" style={{ padding: "24px" }}>
+        <div className="product-main-page">
           {/* Hero Carousel */}
           <FeatureSlider featuredProducts={featuredProducts} />
 
@@ -281,35 +283,60 @@ const ProductMainPage: React.FC = () => {
           </div>
 
           {/* Main Product Listing */}
-          <div style={{ display: "flex", marginBottom: "24px" }}>
-            <Title level={2} style={{ flex: 1 }}>
-              All Products
-            </Title>
-            <Space>
-              {/* Mobile filter button - only visible on small screens */}
-              <Button
-                icon={<FilterOutlined />}
-                onClick={() => setMobileFilterVisible(true)}
-                style={{ display: "block", marginRight: "8px" }}
-                className="mobile-filter-button"
+          <div style={{ marginBottom: "24px" }}>
+            <Row
+              gutter={[30, 30]}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Col xs={24} sm={12} md={8} lg={8} xl={8} xxl={8}>
+                <Title level={2} style={{ flex: 1 }}>
+                  All Products
+                </Title>
+              </Col>
+              <Col
+                xs={24}
+                sm={12}
+                md={16}
+                lg={16}
+                xl={16}
+                xxl={16}
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  alignItems: "center",
+                }}
               >
-                Filters
-              </Button>
-              <div style={{ width: "200px" }}>
-                <Select
-                  value={sortOption}
-                  onChange={setSortOption}
-                  style={{ width: "100%" }}
-                >
-                  <Option value="featured">Featured</Option>
-                  <Option value="price-low">Price: Low to High</Option>
-                  <Option value="price-high">Price: High to Low</Option>
-                  <Option value="rating">Top Rated</Option>
-                  <Option value="newest">Newest</Option>
-                  <Option value="discount">Best Discount</Option>
-                </Select>
-              </div>
-            </Space>
+                <Space>
+                  {/* Mobile filter button - only visible on small screens */}
+                  <Button
+                    icon={<FilterOutlined />}
+                    onClick={() => setMobileFilterVisible(true)}
+                    style={{ display: "block", marginRight: "8px" }}
+                    className="mobile-filter-button"
+                  >
+                    Filters
+                  </Button>
+                  <div style={{ width: "200px" }}>
+                    <Select
+                      value={sortOption}
+                      onChange={setSortOption}
+                      style={{ width: "100%" }}
+                    >
+                      <Option value="featured">Featured</Option>
+                      <Option value="price-low">Price: Low to High</Option>
+                      <Option value="price-high">Price: High to Low</Option>
+                      <Option value="rating">Top Rated</Option>
+                      <Option value="newest">Newest</Option>
+                      <Option value="discount">Best Discount</Option>
+                    </Select>
+                  </div>
+                </Space>
+              </Col>
+            </Row>
           </div>
 
           <Row gutter={[24, 24]}>

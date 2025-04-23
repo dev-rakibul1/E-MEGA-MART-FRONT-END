@@ -22,7 +22,7 @@ type Props = {
   setOpen: (value: boolean) => void;
 };
 
-const AddToProductCart = ({ open, setOpen }: Props) => {
+const MesageInfo = ({ open, setOpen }: Props) => {
   const [placement] = useState<DrawerProps["placement"]>("right");
 
   const onClose = () => {
@@ -43,11 +43,9 @@ const AddToProductCart = ({ open, setOpen }: Props) => {
     dispatch(removeOneFromCart(product)); // Assuming removeOneFromCart is defined elsewhere
   };
 
-  // add to cart APIs data
-
   return (
     <Drawer
-      title="My product cart"
+      title="Message"
       placement={placement}
       width={500}
       onClose={onClose}
@@ -181,4 +179,4 @@ const AddToProductCart = ({ open, setOpen }: Props) => {
   );
 };
 
-export default AddToProductCart;
+export default MesageInfo;

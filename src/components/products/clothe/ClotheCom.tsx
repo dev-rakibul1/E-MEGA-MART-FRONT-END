@@ -16,6 +16,7 @@ import {
   Card,
   Checkbox,
   Col,
+  Drawer,
   Image,
   Input,
   Pagination,
@@ -53,6 +54,7 @@ const FashionMainPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(12);
+  const [mobileFilterVisible, setMobileFilterVisible] = useState(false);
 
   // Get unique values for filters
   const categories = Array.from(new Set(products.map((p) => p.category)));
@@ -166,71 +168,132 @@ const FashionMainPage: React.FC = () => {
   // Featured products for carousel
   const featuredProducts = products.filter((p) => p.isFeatured);
 
+  // Filter content component to avoid duplication
+  const FilterContent = () => {
+    <Card
+      title={
+        <Space>
+          <FilterOutlined />
+          <span>Filters</span>
+        </Space>
+      }
+      style={{ position: "sticky", top: "16px" }}
+    >
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Price Range</Title>
+        <Slider
+          range
+          min={0}
+          max={200}
+          step={5}
+          defaultValue={priceRange}
+          value={priceRange}
+          onChange={setPriceRange}
+          tipFormatter={(value) => `$${value}`}
+        />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Text>${priceRange[0]}</Text>
+          <Text>${priceRange[1]}</Text>
+        </div>
+      </div>
+
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Category</Title>
+        <Checkbox.Group
+          options={categories}
+          value={selectedCategories}
+          onChange={(values) => setSelectedCategories(values as string[])}
+          style={{ display: "flex", flexDirection: "column" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Type</Title>
+        <Checkbox.Group
+          options={types}
+          value={selectedTypes}
+          onChange={(values) => setSelectedTypes(values as string[])}
+          style={{ display: "flex", flexDirection: "column" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Size</Title>
+        <Checkbox.Group
+          options={sizes}
+          value={selectedSizes}
+          onChange={(values) => setSelectedSizes(values as string[])}
+          style={{ display: "flex", flexDirection: "column" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Color</Title>
+        <Checkbox.Group
+          options={colors}
+          value={selectedColors}
+          onChange={(values) => setSelectedColors(values as string[])}
+          style={{ display: "flex", flexDirection: "column" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Brand</Title>
+        <Checkbox.Group
+          options={brands}
+          value={selectedBrands}
+          onChange={(values) => setSelectedBrands(values as string[])}
+          style={{ display: "flex", flexDirection: "column" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Season</Title>
+        <Checkbox.Group
+          options={seasons}
+          value={selectedSeasons}
+          onChange={(values) => setSelectedSeasons(values as string[])}
+          style={{ display: "flex", flexDirection: "column" }}
+        />
+      </div>
+
+      <div style={{ marginBottom: "24px" }}>
+        <Title level={5}>Customer Rating</Title>
+        <Checkbox.Group
+          options={[
+            { label: "★★★★★ (4.5 & up)", value: 4.5 },
+            { label: "★★★★☆ (4.0 & up)", value: 4 },
+            { label: "★★★☆☆ (3.0 & up)", value: 3 },
+          ]}
+          value={selectedRatings}
+          onChange={(values) => setSelectedRatings(values as number[])}
+          style={{ display: "flex", flexDirection: "column" }}
+        />
+      </div>
+
+      <Button
+        type="default"
+        block
+        onClick={() => {
+          setPriceRange([0, 200]);
+          setSelectedCategories([]);
+          setSelectedTypes([]);
+          setSelectedSizes([]);
+          setSelectedColors([]);
+          setSelectedBrands([]);
+          setSelectedSeasons([]);
+          setSelectedRatings([]);
+        }}
+      >
+        Clear All Filters
+      </Button>
+    </Card>;
+  };
+
   return (
     <div className="fashion-page box-container" style={{ padding: "24px" }}>
       {/* Hero Carousel */}
-
-      {/* Hero Carousel */}
       <FeatureSlider featuredProducts={featuredProducts} />
-
-      {/* <Carousel autoplay effect="fade" style={{ marginBottom: "24px" }}>
-        {featuredProducts.map((product) => (
-          <div
-            key={product.id}
-            style={{ position: "relative", height: "400px" }}
-          >
-            <Image
-              src={product.image}
-              alt={product.name}
-              preview={false}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                filter: "brightness(0.7)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: "80px",
-                left: "80px",
-                color: "white",
-                maxWidth: "50%",
-              }}
-            >
-              <Tag
-                color="magenta"
-                style={{ fontSize: "16px", padding: "4px 12px" }}
-              >
-                {product.category === "Women" ? (
-                  <WomanOutlined />
-                ) : (
-                  <ManOutlined />
-                )}{" "}
-                {product.category}'s Collection
-              </Tag>
-              <Title level={2} style={{ color: "white", margin: "16px 0" }}>
-                {product.name}
-              </Title>
-              <Text
-                style={{
-                  color: "white",
-                  fontSize: "18px",
-                  display: "block",
-                  marginBottom: "16px",
-                }}
-              >
-                Now at ${product.price} (Save $
-                {(product.originalPrice || 0) - product.price})
-              </Text>
-              <Button type="primary" size="large">
-                Shop Now
-              </Button>
-            </div>
-          </div>
-        ))}
-      </Carousel> */}
 
       {/* Highlight Sections */}
       <div style={{ marginBottom: "48px" }}>
@@ -429,6 +492,7 @@ const FashionMainPage: React.FC = () => {
               Clear All Filters
             </Button>
           </Card>
+          ;
         </Col>
 
         {/* Product List */}
@@ -496,6 +560,144 @@ const FashionMainPage: React.FC = () => {
           )}
         </Col>
       </Row>
+
+      {/* Mobile Filter Drawer */}
+      <Drawer
+        title="Filters"
+        placement="left"
+        width={300}
+        onClose={() => setMobileFilterVisible(false)}
+        open={mobileFilterVisible}
+        bodyStyle={{ padding: 0 }}
+      >
+        <Card
+          title={
+            <Space>
+              <FilterOutlined />
+              <span>Filters</span>
+            </Space>
+          }
+          style={{ position: "sticky", top: "16px" }}
+        >
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Price Range</Title>
+            <Slider
+              range
+              min={0}
+              max={200}
+              step={5}
+              defaultValue={priceRange}
+              value={priceRange}
+              onChange={setPriceRange}
+              tipFormatter={(value) => `$${value}`}
+            />
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <Text>${priceRange[0]}</Text>
+              <Text>${priceRange[1]}</Text>
+            </div>
+          </div>
+
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Category</Title>
+            <Checkbox.Group
+              options={categories}
+              value={selectedCategories}
+              onChange={(values) => setSelectedCategories(values as string[])}
+              style={{ display: "flex", flexDirection: "column" }}
+            />
+          </div>
+
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Type</Title>
+            <Checkbox.Group
+              options={types}
+              value={selectedTypes}
+              onChange={(values) => setSelectedTypes(values as string[])}
+              style={{ display: "flex", flexDirection: "column" }}
+            />
+          </div>
+
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Size</Title>
+            <Checkbox.Group
+              options={sizes}
+              value={selectedSizes}
+              onChange={(values) => setSelectedSizes(values as string[])}
+              style={{ display: "flex", flexDirection: "column" }}
+            />
+          </div>
+
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Color</Title>
+            <Checkbox.Group
+              options={colors}
+              value={selectedColors}
+              onChange={(values) => setSelectedColors(values as string[])}
+              style={{ display: "flex", flexDirection: "column" }}
+            />
+          </div>
+
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Brand</Title>
+            <Checkbox.Group
+              options={brands}
+              value={selectedBrands}
+              onChange={(values) => setSelectedBrands(values as string[])}
+              style={{ display: "flex", flexDirection: "column" }}
+            />
+          </div>
+
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Season</Title>
+            <Checkbox.Group
+              options={seasons}
+              value={selectedSeasons}
+              onChange={(values) => setSelectedSeasons(values as string[])}
+              style={{ display: "flex", flexDirection: "column" }}
+            />
+          </div>
+
+          <div style={{ marginBottom: "24px" }}>
+            <Title level={5}>Customer Rating</Title>
+            <Checkbox.Group
+              options={[
+                { label: "★★★★★ (4.5 & up)", value: 4.5 },
+                { label: "★★★★☆ (4.0 & up)", value: 4 },
+                { label: "★★★☆☆ (3.0 & up)", value: 3 },
+              ]}
+              value={selectedRatings}
+              onChange={(values) => setSelectedRatings(values as number[])}
+              style={{ display: "flex", flexDirection: "column" }}
+            />
+          </div>
+
+          <Button
+            type="default"
+            block
+            onClick={() => {
+              setPriceRange([0, 200]);
+              setSelectedCategories([]);
+              setSelectedTypes([]);
+              setSelectedSizes([]);
+              setSelectedColors([]);
+              setSelectedBrands([]);
+              setSelectedSeasons([]);
+              setSelectedRatings([]);
+            }}
+          >
+            Clear All Filters
+          </Button>
+        </Card>
+        ;
+      </Drawer>
+
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .mobile-filter-button {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

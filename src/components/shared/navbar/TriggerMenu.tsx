@@ -1,8 +1,10 @@
 "use client";
 
 import AddToProductCart from "@/components/addCart/AddCart";
+import MessageAndNotifications from "@/components/navbar/triggerMenu/MessageNotifications";
 import TriggerMenuSignArea from "@/components/navbar/triggerMenu/TriggerMenuSignArea";
 import WishList from "@/components/navbar/triggerMenu/WishList";
+import AddWishList from "@/components/wishlist/AddWishList";
 import { useAppSelector } from "@/redux/hooks";
 import {
   TriggerMenuIconParent,
@@ -21,6 +23,7 @@ const { Paragraph } = Typography;
 const TriggerMenu = () => {
   const [collapsed, setCollapsed] = useState<boolean>(true);
   const [open, setOpen] = useState(false);
+  const [wishilist, setWishlist] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { products } = useAppSelector((state) => state.cart);
 
@@ -47,10 +50,16 @@ const TriggerMenu = () => {
     setOpen(true);
   };
 
+  // drawer wishlist
+  const showWishlist = () => {
+    setWishlist(true);
+  };
+
   return (
     <>
       {/* Cart drawer */}
       <AddToProductCart open={open} setOpen={setOpen} />
+      <AddWishList open={wishilist} setOpen={setWishlist} />
 
       {/* menu items */}
       <TriggerMenuItems collapsed={collapsed} onToggle={handleToggle} />
@@ -88,6 +97,16 @@ const TriggerMenu = () => {
                   alignItems: "center",
                 }}
               >
+                {/* Message and notifications */}
+                <div className={`${isMobile ? "hidden" : "app-menu-trigger"}`}>
+                  <MessageAndNotifications />
+                </div>
+
+                {/* Shape */}
+                <div style={{ margin: "0 15px" }}>
+                  <Paragraph style={TriggerMenuSignShape}></Paragraph>
+                </div>
+
                 {/* signin/signup button */}
                 <div className={`${isMobile ? "hidden" : "app-menu-trigger"}`}>
                   <TriggerMenuSignArea />
@@ -113,7 +132,7 @@ const TriggerMenu = () => {
                         style={{
                           marginRight: "8px",
                           color: ThemeColors.colorPrimary,
-                          fontSize: "22px",
+                          fontSize: "17px",
                         }}
                       />
                       Cart
@@ -121,9 +140,11 @@ const TriggerMenu = () => {
                   </Badge>
                 </Space>
 
-                {/* signin/signup button */}
+                {/* Wishlist */}
                 <div style={{ margin: "0 15px" }}>
-                  <WishList />
+                  <Space onClick={showWishlist}>
+                    <WishList />
+                  </Space>
                 </div>
               </div>
             </div>
