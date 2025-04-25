@@ -5,11 +5,22 @@ import { Typography } from "antd";
 const { Paragraph } = Typography;
 
 import { LoginOutlined, UserAddOutlined } from "@ant-design/icons";
+import { useRouter } from "next/navigation";
 
 const TriggerMenuSignArea = () => {
+  const router = useRouter();
+
+  const handleRediriectLoginpage = () => {
+    router.push("/login");
+  };
+  const handleRediriectRegisterPage = () => {
+    router.push("/register");
+  };
+
   return (
     <>
       <Paragraph
+        onClick={handleRediriectLoginpage}
         style={{
           display: "flex",
           alignItems: "center",
@@ -24,10 +35,11 @@ const TriggerMenuSignArea = () => {
             fontSize: "17px",
           }}
         />
-        Sign Up
+        Login
       </Paragraph>
 
       <Paragraph
+        onClick={handleRediriectRegisterPage}
         style={{
           display: "flex",
           alignItems: "center",
@@ -43,7 +55,7 @@ const TriggerMenuSignArea = () => {
             fontSize: "17px",
           }}
         />
-        Sign In
+        Register
       </Paragraph>
     </>
   );
